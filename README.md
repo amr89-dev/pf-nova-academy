@@ -1,3 +1,4 @@
+
 # Nova Academy
 
 Repositorio del proyecto final del bootcamp **Henry**
@@ -9,8 +10,9 @@ Repositorio del proyecto final del bootcamp **Henry**
 - Alicia
 - Liliana
 - Agustin
-- Santiago
+- Santiago (dev-santiago)
 - Javier
 - Neider
 - Daniel
 - Amado
+
