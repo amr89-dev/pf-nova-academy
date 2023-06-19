@@ -1,2 +1,18 @@
-# pf-nova-academy
-# hola como estan esto es un prueba(dev-santiago)
+
+# Nova Academy
+
+Repositorio del proyecto final del bootcamp **Henry**
+
+18-06-2023
+
+## Integrantes:
+
+- Alicia
+- Liliana
+- Agustin
+- Santiago (dev-santiago)
+- Javier
+- Neider
+- Daniel
+- Amado
+
