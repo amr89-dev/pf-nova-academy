@@ -6,7 +6,7 @@ Repositorio del proyecto final del bootcamp **Henry**
 
 ## Integrantes:
 
-- Alicia
+- Alicia 1
 - Liliana
 - Agustin
 - Santiago
