@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Lesson",
     {
-      id_lesson: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -14,12 +14,6 @@ module.exports = (sequelize) => {
       },
       content: {
         type: DataTypes.TEXT,
-      },
-      course_id: {
-        type: DataTypes.INTEGER,
-      },
-      module_id: {
-        type: DataTypes.INTEGER,
       },
     },
     {

@@ -4,16 +4,10 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Enrollment",
     {
-      id_enrollment: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-      },
-      id_user: {
-        type: DataTypes.INTEGER,
-      },
-      id_course: {
-        type: DataTypes.INTEGER,
       },
       start_date: {
         type: DataTypes.DATE,
