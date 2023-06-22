@@ -14,8 +14,8 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       type: {
-        type: DataTypes.ENUM('Exams', 'Movie', 'PDF'),
-        allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       link: {
         type: DataTypes.STRING,
@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
       },
     },
     {
-      tableName: "Resource",
+    
       timestamps: false,
     }
   );

@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
       },
     },
     {
-      tableName: "Certificate",
+     
       timestamps: false,
     }
   );

@@ -54,59 +54,45 @@ const {
 // Relación entre Usuario y Curso (muchos a muchos)
 User.belongsToMany(Course, { through: "userCourse", foreignKey: "userId" });
 Course.belongsToMany(User, { through: "userCourse", foreignKey: "courseId" });
-
-// Relación entre ProgressLesson y User (uno a muchos)
+// relacion entre  progresslesson  y user de uno a  muchos
 User.hasMany(ProgressLesson, { foreignKey: "userId" });
 ProgressLesson.belongsTo(User, { foreignKey: "userId" });
-
-// Relación entre Curso y ProgressLesson (uno a muchos)
+// relacion entre curso y progressLesson uno a muchos
 Course.hasMany(ProgressLesson, { foreignKey: "courseId" });
 ProgressLesson.belongsTo(Course, { foreignKey: "courseId" });
-
-// Relación entre Lesson y ProgressLesson (uno a muchos)
+// falta comentar
 Lesson.hasMany(ProgressLesson, { foreignKey: "lessonId" });
 ProgressLesson.belongsTo(Lesson, { foreignKey: "lessonId" });
-
-// Relación entre User y Certificate (uno a muchos)
+//falta comentar
 User.hasMany(Certificate, { foreignKey: "userId" });
 Certificate.belongsTo(User, { foreignKey: "userId" });
-
-// Relación entre Lesson y Review (uno a muchos)
+//falta comentar
 Lesson.hasMany(Review, { foreignKey: "lessonId" });
 Review.belongsTo(Lesson, { foreignKey: "lessonId" });
-
-// Relación entre Curso y Module (uno a muchos)
+//falta comentar
 Course.hasMany(Module, { foreignKey: "courseId" });
 Module.belongsTo(Course, { foreignKey: "courseId" });
-
-// Relación entre User y Enrollment (uno a muchos)
+//falta comentar
 User.hasMany(Enrollment, { foreignKey: "userId" });
 Enrollment.belongsTo(User, { foreignKey: "userId" });
-
-// Relación entre Curso y Enrollment (uno a muchos)
+//falta comentar
 Course.hasMany(Enrollment, { foreignKey: "courseId" });
 Enrollment.belongsTo(Course, { foreignKey: "courseId" });
-
-// Relación entre User y Payment (uno a muchos)
+//falta comentar
 User.hasMany(Payment, { foreignKey: "userId" });
 Payment.belongsTo(User, { foreignKey: "userId" });
-
-// Relación entre Curso y Payment (uno a muchos)
+//falta comentar
 Course.hasMany(Payment, { foreignKey: "courseId" });
 Payment.belongsTo(Course, { foreignKey: "courseId" });
-
-// Relación entre Module y Lesson (uno a muchos)
-Lesson.belongsTo(Module, { foreignKey: "moduleId" });
+//falta comentar
 Module.hasMany(Lesson, { foreignKey: "moduleId" });
-
-// Relación entre Lesson y Resourse (uno a uno)
-Lesson.hasMany(Resource, { foreignKey: 'lessonId' });
-Resource.belongsTo(Lesson, { foreignKey: 'lessonId' });
-
-// Relación entre Curso y Category (uno a muchos)
+Lesson.belongsTo(Module, { foreignKey: "moduleId" });
+//falta comentar
+Lesson.belongsTo(Resource, { foreignKey: "resourseId" });
+Resource.hasOne(Lesson, { foreignKey: "resourseId" });//error------>
+//falta comentar
 Course.hasMany(Category, { foreignKey: "courseId" });
 Category.belongsTo(Course, { foreignKey: "courseId" });
-
 // Relación entre Curso y Módulo (uno a muchos)
 
 module.exports = {
