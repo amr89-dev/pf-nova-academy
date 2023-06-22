@@ -9,17 +9,17 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      pdf: {
+      name: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
-      movies: {
-        type: DataTypes.STRING,
-        allowNull: true,
+      type: {
+        type: DataTypes.ENUM('Exams', 'Movie', 'PDF'),
+        allowNull: false,
       },
-      exams: {
+      link: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
     },
     {
