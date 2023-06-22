@@ -46,14 +46,66 @@ const {
   Module,
   Payment,
   ProgressLesson,
-  Resourse,
-  Revier,
+  Resource,
+  Review,
   User,
 } = sequelize.models;
 
 // Relación entre Usuario y Curso (muchos a muchos)
-User.belongsToMany(Course, { through: "Enrollment", foreignKey: 'userId' });
-Course.belongsToMany(User, { through: "Enrollment", foreignKey: 'courseId' });
+User.belongsToMany(Course, { through: "userCourse", foreignKey: "userId" });
+Course.belongsToMany(User, { through: "userCourse", foreignKey: "courseId" });
+
+// Relación entre ProgressLesson y User (uno a muchos)
+User.hasMany(ProgressLesson, { foreignKey: "userId" });
+ProgressLesson.belongsTo(User, { foreignKey: "userId" });
+
+// Relación entre Curso y ProgressLesson (uno a muchos)
+Course.hasMany(ProgressLesson, { foreignKey: "courseId" });
+ProgressLesson.belongsTo(Course, { foreignKey: "courseId" });
+
+// Relación entre Lesson y ProgressLesson (uno a muchos)
+Lesson.hasMany(ProgressLesson, { foreignKey: "lessonId" });
+ProgressLesson.belongsTo(Lesson, { foreignKey: "lessonId" });
+
+// Relación entre User y Certificate (uno a muchos)
+User.hasMany(Certificate, { foreignKey: "userId" });
+Certificate.belongsTo(User, { foreignKey: "userId" });
+
+// Relación entre Lesson y Review (uno a muchos)
+Lesson.hasMany(Review, { foreignKey: "lessonId" });
+Review.belongsTo(Lesson, { foreignKey: "lessonId" });
+
+// Relación entre Curso y Module (uno a muchos)
+Course.hasMany(Module, { foreignKey: "courseId" });
+Module.belongsTo(Course, { foreignKey: "courseId" });
+
+// Relación entre User y Enrollment (uno a muchos)
+User.hasMany(Enrollment, { foreignKey: "userId" });
+Enrollment.belongsTo(User, { foreignKey: "userId" });
+
+// Relación entre Curso y Enrollment (uno a muchos)
+Course.hasMany(Enrollment, { foreignKey: "courseId" });
+Enrollment.belongsTo(Course, { foreignKey: "courseId" });
+
+// Relación entre User y Payment (uno a muchos)
+User.hasMany(Payment, { foreignKey: "userId" });
+Payment.belongsTo(User, { foreignKey: "userId" });
+
+// Relación entre Curso y Payment (uno a muchos)
+Course.hasMany(Payment, { foreignKey: "courseId" });
+Payment.belongsTo(Course, { foreignKey: "courseId" });
+
+// Relación entre Module y Lesson (uno a muchos)
+Lesson.belongsTo(Module, { foreignKey: "moduleId" });
+Module.hasMany(Lesson, { foreignKey: "moduleId" });
+
+// Relación entre Lesson y Resourse (uno a uno)
+Lesson.hasMany(Resource, { foreignKey: 'lessonId' });
+Resource.belongsTo(Lesson, { foreignKey: 'lessonId' });
+
+// Relación entre Curso y Category (uno a muchos)
+Course.hasMany(Category, { foreignKey: "courseId" });
+Category.belongsTo(Course, { foreignKey: "courseId" });
 
 // Relación entre Curso y Módulo (uno a muchos)
 
