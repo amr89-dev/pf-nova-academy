@@ -4,19 +4,24 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Module",
     {
-      title: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      name: {
+        type: DataTypes.STRING(100),
       },
       description: {
         type: DataTypes.TEXT,
-        allowNull: false,
       },
-      orderDisplay: {
+      order: {
         type: DataTypes.INTEGER,
-        allowNull: false,
       },
     },
-    { timestamps: false }
+    {
+      tableName: "Module",
+      timestamps: false,
+    }
   );
 };

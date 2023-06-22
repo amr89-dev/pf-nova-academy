@@ -2,25 +2,28 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Enrollment",
+    "Resource",
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      start_date: {
-        type: DataTypes.DATE,
+      pdf: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
-      end_date: {
-        type: DataTypes.DATE,
+      movies: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
-      course_score: {
-        type: DataTypes.INTEGER,
+      exams: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
     },
     {
-      tableName: "Enrollment",
+      tableName: "recursos",
       timestamps: false,
     }
   );
