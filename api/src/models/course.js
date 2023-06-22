@@ -9,27 +9,24 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      title: {
-        type: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING(100),
         allowNull: false,
       },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
-      level: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      price: {
-        type: DataTypes.DECIMAL(10, 2),
+      category: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       duration: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      price: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: false,
+      },
     },
     { timestamps: false }
   );
 };
+

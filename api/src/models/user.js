@@ -10,20 +10,19 @@ module.exports = (sequelize) => {
         autoIncrement: true,
       },
       name: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         allowNull: false,
       },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      password: {
-        type: DataTypes.STRING,
+      category: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
-      role: {
-        type: DataTypes.STRING,
+      duration: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      price: {
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
     },

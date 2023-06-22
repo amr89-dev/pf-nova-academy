@@ -2,9 +2,9 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Enrollment",
+    "Payment",
     {
-      id_enrollment: {
+      id_payment: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -15,18 +15,15 @@ module.exports = (sequelize) => {
       id_course: {
         type: DataTypes.INTEGER,
       },
-      start_date: {
+      payment_date: {
         type: DataTypes.DATE,
       },
-      end_date: {
-        type: DataTypes.DATE,
-      },
-      course_score: {
-        type: DataTypes.INTEGER,
+      payment_amount: {
+        type: DataTypes.DECIMAL(10, 2),
       },
     },
     {
-      tableName: "Enrollment",
+      tableName: "Payment",
       timestamps: false,
     }
   );

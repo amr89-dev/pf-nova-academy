@@ -2,28 +2,28 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Lesson",
+    "Resource",
     {
-      id_lesson: {
+      id_recurso: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      title: {
-        type: DataTypes.STRING(100),
+      pdf: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
-      content: {
-        type: DataTypes.TEXT,
+      movies: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
-      course_id: {
-        type: DataTypes.INTEGER,
-      },
-      module_id: {
-        type: DataTypes.INTEGER,
+      exams: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
     },
     {
-      tableName: "Lesson",
+      tableName: "recursos",
       timestamps: false,
     }
   );

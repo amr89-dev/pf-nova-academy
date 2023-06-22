@@ -2,31 +2,22 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Enrollment",
+    "Certificate",
     {
-      id_enrollment: {
+      id_certificate: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      id_user: {
+      user_id: {
         type: DataTypes.INTEGER,
       },
-      id_course: {
-        type: DataTypes.INTEGER,
-      },
-      start_date: {
+      issuance_date: {
         type: DataTypes.DATE,
-      },
-      end_date: {
-        type: DataTypes.DATE,
-      },
-      course_score: {
-        type: DataTypes.INTEGER,
       },
     },
     {
-      tableName: "Enrollment",
+      tableName: "Certificate",
       timestamps: false,
     }
   );
