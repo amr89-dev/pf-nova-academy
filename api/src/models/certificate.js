@@ -4,13 +4,10 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Certificate",
     {
-      id_certificate: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-      },
-      user_id: {
-        type: DataTypes.INTEGER,
       },
       issuance_date: {
         type: DataTypes.DATE,

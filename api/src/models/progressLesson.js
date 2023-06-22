@@ -4,22 +4,10 @@ module.exports = (sequelize) => {
   sequelize.define(
     "ProgressLesson",
     {
-      id_progress_lesson: {
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-      },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      course_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      lesson_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
       },
       completed: {
         type: DataTypes.BOOLEAN,
