@@ -9,15 +9,15 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      pdf: {
+      name: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      movies: {
+      type: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      exams: {
+      link: {
         type: DataTypes.STRING,
         allowNull: true,
       },
