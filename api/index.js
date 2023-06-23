@@ -3,7 +3,7 @@ const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
 
-const PORT = 3100
+const PORT = 3001
 const main = async () => {
   try {
     await conn.authenticate();
