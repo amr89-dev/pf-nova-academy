@@ -23,8 +23,8 @@ const getModules = async (req, res) => {
 
 const getModuleById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const module = await Module.findByPk(id);
+    const { moduleId } = req.params;
+    const module = await Module.findByPk(moduleId);
     if (!module) {
       return res.status(404).json({ error: "Module not found" });
     }
@@ -37,9 +37,9 @@ const getModuleById = async (req, res) => {
 
 const updateModuleById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { moduleId } = req.params;
     const { name, description, order } = req.body;
-    const module = await Module.findByPk(id);
+    const module = await Module.findByPk(moduleId);
     if (!module) {
       return res.status(404).json({ error: "Module not found" });
     }
@@ -53,8 +53,8 @@ const updateModuleById = async (req, res) => {
 
 const deleteModuleById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const module = await Module.findByPk(id);
+    const { moduleId } = req.params;
+    const module = await Module.findByPk(moduleId);
     if (!module) {
       return res.status(404).json({ error: "Module not found" });
     }

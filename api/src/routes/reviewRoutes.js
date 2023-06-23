@@ -7,6 +7,6 @@ reviewRoutes.get("/", getReviews)
 reviewRoutes.get("/:reviewId", getReviewById)
 reviewRoutes.post("/", createReview)
 reviewRoutes.put("/:reviewId", updateReviewById)
-reviewRoutes.delete("/reviewId", deleteReviewById)
+reviewRoutes.delete("/:reviewId", deleteReviewById)
 
 module.exports = reviewRoutes;
