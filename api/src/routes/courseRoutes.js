@@ -1,13 +1,12 @@
 const {Router} = require('express');
-const {createCourse, getCourses, getCoursById, updateCourseById, deleteCourseById} = require ("../controllers/courses.controller.js");
+const {createCourse, getCourses, getCourseById, updateCourseById, deleteCourseById} = require ("../controllers/courses.controller.js");
 const courseRoutes = Router();
 
 
-
-courseRoutes.post("/", createCourse)
 courseRoutes.get("/", getCourses)
-courseRoutes.get("/:courseId", getCoursById)
+courseRoutes.get("/:courseId", getCourseById)
+courseRoutes.post("/", createCourse)
 courseRoutes.put("/:courseId", updateCourseById)
-courseRoutes.delete("/:cousesId", deleteCourseById)
+courseRoutes.delete("/:couseId", deleteCourseById)
 
 module.exports = courseRoutes;
