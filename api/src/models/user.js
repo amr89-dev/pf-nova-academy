@@ -7,25 +7,31 @@ module.exports = (sequelize) => {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
-      name: {
+      firstName: {
+        type: DataTypes.STRING(50),
+        allowNull: false
+      },
+      lastName: {
+        type: DataTypes.STRING(50),
+        allowNull: false
+      },
+      email: {
         type: DataTypes.STRING(100),
-        allowNull: false,
+        allowNull: false
       },
-      category: {
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      role: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      duration: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      price: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false,
-      },
-    },
-    { timestamps: false }
+        allowNull: false
+      }
+    }, {
+      tableName: 'User',
+      timestamps: false
+    }
   );
 };

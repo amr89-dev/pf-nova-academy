@@ -1,19 +1,75 @@
-const createModule = (req, res) => {
-    res.json("ruta que crea un usuario")
-}
+const { Module } = require("../models");
 
-const getUsers = (req, res) => {
-    res.json("ruta que obtiene todos los usuarios")
-}
+const createModule = async (req, res) => {
+  try {
+    const { name, description, order } = req.body;
+    const module = await Module.create({ name, description, order });
+    res.json(module);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error creating module" });
+  }
+};
 
-const getUserById = (req, res) => {
-    res.json("ruta que obtiene usuario por ID")
-}
+const getModules = async (req, res) => {
+  try {
+    const modules = await Module.findAll();
+    res.json(modules);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error retrieving modules" });
+  }
+};
 
-const updateUserById = (req, res) => {
-    res.json("ruta que actualiza usuario")
-}
+const getModuleById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const module = await Module.findByPk(id);
+    if (!module) {
+      return res.status(404).json({ error: "Module not found" });
+    }
+    res.json(module);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error retrieving module" });
+  }
+};
 
-const deleteUserById = (req, res) => {
-    res.json("ruta que elimina usuario")
-}
+const updateModuleById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, description, order } = req.body;
+    const module = await Module.findByPk(id);
+    if (!module) {
+      return res.status(404).json({ error: "Module not found" });
+    }
+    await module.update({ name, description, order });
+    res.json(module);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error updating module" });
+  }
+};
+
+const deleteModuleById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const module = await Module.findByPk(id);
+    if (!module) {
+      return res.status(404).json({ error: "Module not found" });
+    }
+    await module.destroy();
+    res.json({ message: "Module deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error deleting module" });
+  }
+};
+
+module.exports = {
+  createModule,
+  getModules,
+  getModuleById,
+  updateModuleById,
+  deleteModuleById,
+};
