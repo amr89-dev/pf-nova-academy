@@ -1,4 +1,4 @@
-const { ProgressLesson } = require("../models");
+const { ProgressLesson } = require("../models/progressLesson");
 
 const createProgressLesson = async (req, res) => {
   try {
