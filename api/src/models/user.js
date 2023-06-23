@@ -9,11 +9,7 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true
       },
-      firstName: {
-        type: DataTypes.STRING(50),
-        allowNull: false
-      },
-      lastName: {
+      name: {
         type: DataTypes.STRING(50),
         allowNull: false
       },
@@ -26,7 +22,8 @@ module.exports = (sequelize) => {
         allowNull: false
       },
       role: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.ENUM("SuperAdmin", "Teacher", "Student"),
+        default:"Student",
         allowNull: false
       }
     }, {
