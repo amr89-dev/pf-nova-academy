@@ -24,4 +24,4 @@ const validateUser = [
   },
 ];
 
-module.exports = validateResult
+module.exports = validateUser
