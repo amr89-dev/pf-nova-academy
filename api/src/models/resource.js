@@ -23,7 +23,6 @@ module.exports = (sequelize) => {
       },
     },
     {
-      tableName: "recursos",
       timestamps: false,
     }
   );
