@@ -3,11 +3,10 @@ const {createCourse, getCourses, getCoursById, updateCourseById, deleteCourseByI
 const courseRoutes = Router();
 
 
-
-courseRoutes.post("/", createCourse)
 courseRoutes.get("/", getCourses)
 courseRoutes.get("/:courseId", getCoursById)
+courseRoutes.post("/", createCourse)
 courseRoutes.put("/:courseId", updateCourseById)
-courseRoutes.delete("/:cousesId", deleteCourseById)
+courseRoutes.delete("/:couseId", deleteCourseById)
 
 module.exports = courseRoutes;
