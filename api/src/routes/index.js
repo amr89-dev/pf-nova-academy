@@ -1,30 +1,29 @@
 const { Router } = require('express');
 // Importar todos los routers;
-const coursesRoute = require("./courseRoutes.js")
-const categoryRoute = require("./categoryRoutes.js")
-const certificateRoute = require("./certificateRoutes.js")
-const enrollmentRoute = require("./enrollmentRoutes.js")
-const lessonRoute = require("./lessonRoutes.js")
-const moduleRoute = require("./moduleRoutes.js")
-const paymentRoute = require("./paymentRoutes.js")
-const progressLessonRoute = require("./progressLessonRoutes.js")
-const resourceRoute = require("./resourceRoutes.js")
-const courseRoute = require("./courseRoutes.js");
-const reviewRoute = require('./reviewRoutes.js');
-const userRoute = require('./userRoutes.js');
+const courseRoutes = require("./courseRoutes.js")
+const categoryRoutes = require("./categoryRoutes.js")
+const certificateRoutes = require("./certificateRoutes.js")
+const enrollmentRoutes = require("./enrollmentRoutes.js")
+const lessonRoutes = require("./lessonRoutes.js")
+const moduleRoutes = require("./moduleRoutes.js")
+const paymentRoutes = require("./paymentRoutes.js")
+const progressLessonRoutes = require("./progressLessonRoutes.js")
+const resourceRoutes = require("./resourceRoutes.js")
+const reviewRoutes = require('./reviewRoutes.js');
+const userRoutes = require('./userRoutes.js');
 
 const router = Router();
 
-router.use("/courses", courseRoute);
-router.use("/category", categoryRoute);
-router.use("/certificate", certificateRoute);
-router.use("/enrollment", enrollmentRoute);
-router.use("/lesson", lessonRoute);
-router.use("/module", moduleRoute);
-router.use("/payment", paymentRoute);
-router.use("/progresslesson", progressLessonRoute);
-router.use("/resource", resourceRoute);
-router.use("/review", reviewRoute);
-router.use("/user", userRoute);
+router.use("/courses", courseRoutes);
+router.use("/category", categoryRoutes);
+router.use("/certificate", certificateRoutes);
+router.use("/enrollment", enrollmentRoutes);
+router.use("/lesson", lessonRoutes);
+router.use("/module", moduleRoutes);
+router.use("/payment", paymentRoutes);
+router.use("/progresslesson", progressLessonRoutes);
+router.use("/resource", resourceRoutes);
+router.use("/review", reviewRoutes);
+router.use("/user", userRoutes);
 
 module.exports = router;
