@@ -7,6 +7,6 @@ progressLessonRoutes.get("/", getProgressLessons)
 progressLessonRoutes.get("/:progressLessonId", getProgressLessonById)
 progressLessonRoutes.post("/", createProgressLesson)
 progressLessonRoutes.put("/:progressLessonId", updateProgressLessonById)
-progressLessonRoutes.delete("/progressLessonId", deleteProgressLessonById)
+progressLessonRoutes.delete("/:progressLessonId", deleteProgressLessonById)
 
 module.exports = progressLessonRoutes;
