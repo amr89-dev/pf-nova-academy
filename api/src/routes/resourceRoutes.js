@@ -7,6 +7,6 @@ resourceRoutes.get("/", getResources)
 resourceRoutes.get("/:resourceId", getResourceById)
 resourceRoutes.post("/", createResource)
 resourceRoutes.put("/:resourceId", updateResourceById)
-resourceRoutes.delete("/resourceId", deleteResourceById)
+resourceRoutes.delete("/:resourceId", deleteResourceById)
 
 module.exports = resourceRoutes;

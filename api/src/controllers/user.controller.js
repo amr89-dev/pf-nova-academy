@@ -1,4 +1,4 @@
-const { User } = require("../models/user");
+const { User } = require("../db");
 
 const createUser = async (req, res) => {
   try {
@@ -28,8 +28,9 @@ const getUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const user = await User.findByPk(id);
+    const { userId } = req.params;
+    console.log(userId)
+    const user = await User.findByPk(userId);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
@@ -42,9 +43,9 @@ const getUserById = async (req, res) => {
 
 const updateUserById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { userId } = req.params;
     const { name, email, password, role } = req.body;
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(userId);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
@@ -58,8 +59,8 @@ const updateUserById = async (req, res) => {
 
 const deleteUserById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const user = await User.findByPk(id);
+    const { userId } = req.params;
+    const user = await User.findByPk(userId);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }

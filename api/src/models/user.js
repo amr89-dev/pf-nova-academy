@@ -22,7 +22,8 @@ module.exports = (sequelize) => {
         allowNull: false
       },
       role: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.ENUM("SuperAdmin", "Teacher", "Student"),
+        default:"Student",
         allowNull: false
       }
     }, {

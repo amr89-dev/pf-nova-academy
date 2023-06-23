@@ -9,6 +9,6 @@ userRoutes.get("/", getUsers)
 userRoutes.get("/:userId", getUserById)
 userRoutes.post("/",validateUser,createUser)
 userRoutes.put("/:userId", updateUserById)
-userRoutes.delete("/userId", deleteUserById)
+userRoutes.delete("/:userId", deleteUserById)
 
 module.exports = userRoutes;
