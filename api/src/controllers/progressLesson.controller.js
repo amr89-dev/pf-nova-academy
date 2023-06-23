@@ -26,8 +26,8 @@ const getProgressLessons = async (req, res) => {
 
 const getProgressLessonById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const progressLesson = await ProgressLesson.findByPk(id);
+    const { progressLessonId } = req.params;
+    const progressLesson = await ProgressLesson.findByPk(progressLessonId);
     if (!progressLesson) {
       return res.status(404).json({ error: "Progress lesson not found" });
     }
@@ -40,9 +40,9 @@ const getProgressLessonById = async (req, res) => {
 
 const updateProgressLessonById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { progressLessonId } = req.params;
     const { completed, played_time } = req.body;
-    const progressLesson = await ProgressLesson.findByPk(id);
+    const progressLesson = await ProgressLesson.findByPk(progressLessonId);
     if (!progressLesson) {
       return res.status(404).json({ error: "Progress lesson not found" });
     }
@@ -58,8 +58,8 @@ const updateProgressLessonById = async (req, res) => {
 
 const deleteProgressLessonById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const progressLesson = await ProgressLesson.findByPk(id);
+    const { progressLessonId } = req.params;
+    const progressLesson = await ProgressLesson.findByPk(progressLessonId);
     if (!progressLesson) {
       return res.status(404).json({ error: "Progress lesson not found" });
     }
