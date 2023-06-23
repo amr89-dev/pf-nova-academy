@@ -27,8 +27,8 @@ const getEnrollments = async (req, res) => {
 
 const getEnrollmentById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const enrollment = await Enrollment.findByPk(id);
+    const { enrollmentId } = req.params;
+    const enrollment = await Enrollment.findByPk(enrollmentId);
     if (!enrollment) {
       return res.status(404).json({ error: "Enrollment not found" });
     }
@@ -41,9 +41,9 @@ const getEnrollmentById = async (req, res) => {
 
 const updateEnrollmentById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { enrollmentId } = req.params;
     const { start_date, end_date, course_score } = req.body;
-    const enrollment = await Enrollment.findByPk(id);
+    const enrollment = await Enrollment.findByPk(enrollmentId);
     if (!enrollment) {
       return res.status(404).json({ error: "Enrollment not found" });
     }
@@ -60,8 +60,8 @@ const updateEnrollmentById = async (req, res) => {
 
 const deleteEnrollmentById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const enrollment = await Enrollment.findByPk(id);
+    const { enrollmentId } = req.params;
+    const enrollment = await Enrollment.findByPk(enrollmentId);
     if (!enrollment) {
       return res.status(404).json({ error: "Enrollment not found" });
     }
