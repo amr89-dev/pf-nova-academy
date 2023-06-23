@@ -23,8 +23,8 @@ const getLessons = async (req, res) => {
 
 const getLessonById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const lesson = await Lesson.findByPk(id);
+    const { lessonId } = req.params;
+    const lesson = await Lesson.findByPk(lessonId);
     if (!lesson) {
       return res.status(404).json({ error: "Lesson not found" });
     }
@@ -37,9 +37,9 @@ const getLessonById = async (req, res) => {
 
 const updateLessonById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { lessonId } = req.params;
     const { title, content } = req.body;
-    const lesson = await Lesson.findByPk(id);
+    const lesson = await Lesson.findByPk(lessonId);
     if (!lesson) {
       return res.status(404).json({ error: "Lesson not found" });
     }
@@ -53,8 +53,8 @@ const updateLessonById = async (req, res) => {
 
 const deleteLessonById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const lesson = await Lesson.findByPk(id);
+    const { lessonId } = req.params;
+    const lesson = await Lesson.findByPk(lessonId);
     if (!lesson) {
       return res.status(404).json({ error: "Lesson not found" });
     }
