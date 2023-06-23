@@ -2,10 +2,9 @@ const { User } = require("../models/user");
 
 const createUser = async (req, res) => {
   try {
-    const { firstName, lastName, email, password, role } = req.body;
+    const { name, email, password, role } = req.body;
     const user = await User.create({
-      firstName,
-      lastName,
+      name,
       email,
       password,
       role,
@@ -44,12 +43,12 @@ const getUserById = async (req, res) => {
 const updateUserById = async (req, res) => {
   try {
     const { id } = req.params;
-    const { firstName, lastName, email, password, role } = req.body;
+    const { name, email, password, role } = req.body;
     const user = await User.findByPk(id);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-    await user.update({ firstName, lastName, email, password, role });
+    await user.update({ name, email, password, role });
     res.json(user);
   } catch (error) {
     console.error(error);
