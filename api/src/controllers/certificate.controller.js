@@ -23,8 +23,8 @@ const getCertificates = async (req, res) => {
 
 const getCertificateById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const certificate = await Certificate.findByPk(id);
+    const { certificateId } = req.params;
+    const certificate = await Certificate.findByPk(certificateId);
     if (!certificate) {
       return res.status(404).json({ error: "Certificate not found" });
     }
@@ -37,9 +37,9 @@ const getCertificateById = async (req, res) => {
 
 const updateCertificateById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { certificateId } = req.params;
     const { issuance_date } = req.body;
-    const certificate = await Certificate.findByPk(id);
+    const certificate = await Certificate.findByPk(certificateId);
     if (!certificate) {
       return res.status(404).json({ error: "Certificate not found" });
     }
@@ -54,8 +54,8 @@ const updateCertificateById = async (req, res) => {
 
 const deleteCertificateById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const certificate = await Certificate.findByPk(id);
+    const { certificateId } = req.params;
+    const certificate = await Certificate.findByPk(certificateId);
     if (!certificate) {
       return res.status(404).json({ error: "Certificate not found" });
     }
