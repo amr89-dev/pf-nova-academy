@@ -1,4 +1,4 @@
-const { Certificate } = require("../models");
+const { Certificate } = require("../models/certificate");
 
 const createCertificate = async (req, res) => {
   try {

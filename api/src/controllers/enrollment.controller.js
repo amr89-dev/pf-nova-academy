@@ -1,4 +1,4 @@
-const { Enrollment } = require("../models");
+const { Enrollment } = require("../models/enrollment");
 
 const createEnrollment = async (req, res) => {
   try {
