@@ -1,3 +1,4 @@
+const { encrypt } = require("../helpers/handleBcrypt");
 const { User } = require("../models/user");
 
 const createUser = async (req, res) => {
@@ -7,7 +8,7 @@ const createUser = async (req, res) => {
       firstName,
       lastName,
       email,
-      password,
+      password:await encrypt(password),
       role,
     });
     res.json(user);
