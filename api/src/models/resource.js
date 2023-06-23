@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       type: {
         type: DataTypes.STRING,
@@ -19,11 +19,10 @@ module.exports = (sequelize) => {
       },
       link: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
     },
     {
-    
       timestamps: false,
     }
   );
