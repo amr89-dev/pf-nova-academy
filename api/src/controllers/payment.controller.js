@@ -1,4 +1,4 @@
-const { Payment } = require("../models/payment");
+const { Payment } = require("../db");
 
 const createPayment = async (req, res) => {
   try {
@@ -23,8 +23,8 @@ const getPayments = async (req, res) => {
 
 const getPaymentById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const payment = await Payment.findByPk(id);
+    const { paymentId } = req.params;
+    const payment = await Payment.findByPk(paymentId);
     if (!payment) {
       return res.status(404).json({ error: "Payment not found" });
     }
@@ -37,9 +37,9 @@ const getPaymentById = async (req, res) => {
 
 const updatePaymentById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { paymentId } = req.params;
     const { payment_date, payment_amount } = req.body;
-    const payment = await Payment.findByPk(id);
+    const payment = await Payment.findByPk(paymentId);
     if (!payment) {
       return res.status(404).json({ error: "Payment not found" });
     }
@@ -55,8 +55,8 @@ const updatePaymentById = async (req, res) => {
 
 const deletePaymentById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const payment = await Payment.findByPk(id);
+    const { paymentId } = req.params;
+    const payment = await Payment.findByPk(paymentId);
     if (!payment) {
       return res.status(404).json({ error: "Payment not found" });
     }

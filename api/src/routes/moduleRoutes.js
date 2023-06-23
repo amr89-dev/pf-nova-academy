@@ -7,6 +7,6 @@ moduleRoutes.get("/", getModules)
 moduleRoutes.get("/:moduleId", getModuleById)
 moduleRoutes.post("/", createModule)
 moduleRoutes.put("/:moduleId", updateModuleById)
-moduleRoutes.delete("/moduleId", deleteModuleById)
+moduleRoutes.delete("/:moduleId", deleteModuleById)
 
 module.exports = moduleRoutes;

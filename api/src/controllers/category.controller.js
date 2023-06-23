@@ -1,4 +1,4 @@
-const { Category } = require("../models/category");
+const { Category } = require("../db");
 
 const createCategory = async (req, res) => {
   try {
@@ -23,8 +23,8 @@ const getCategories = async (req, res) => {
 
 const getCategoryById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const category = await Category.findByPk(id);
+    const { categoryId } = req.params;
+    const category = await Category.findByPk(categoryId);
     if (!category) {
       return res.status(404).json({ error: "Category not found" });
     }
@@ -37,9 +37,9 @@ const getCategoryById = async (req, res) => {
 
 const updateCategoryById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { categoryId } = req.params;
     const { name, description } = req.body;
-    const category = await Category.findByPk(id);
+    const category = await Category.findByPk(categoryId);
     if (!category) {
       return res.status(404).json({ error: "Category not found" });
     }
@@ -55,8 +55,8 @@ const updateCategoryById = async (req, res) => {
 
 const deleteCategoryById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const category = await Category.findByPk(id);
+    const { categoryId } = req.params;
+    const category = await Category.findByPk(categoryId);
     if (!category) {
       return res.status(404).json({ error: "Category not found" });
     }

@@ -11,9 +11,8 @@ module.exports = (sequelize) => {
       },
       name: {
         type: DataTypes.STRING(50),
-        allowNull: false,
+        allowNull: false
       },
-
       email: {
         type: DataTypes.STRING(100),
         allowNull: false,
@@ -23,13 +22,13 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       role: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-    },
-    {
-      tableName: "User",
-      timestamps: false,
+        type: DataTypes.ENUM("SuperAdmin", "Teacher", "Student"),
+        default:"Student",
+        allowNull: false
+      }
+    }, {
+      tableName: 'User',
+      timestamps: false
     }
   );
 };

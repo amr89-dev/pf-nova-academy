@@ -1,4 +1,4 @@
-const { Resource } = require("../models/resource");
+const { Resource } = require("../db");
 
 const createResource = async (req, res) => {
   try {
@@ -23,8 +23,8 @@ const getResources = async (req, res) => {
 
 const getResourceById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const resource = await Resource.findByPk(id);
+    const { resourceId } = req.params;
+    const resource = await Resource.findByPk(resourceId);
     if (!resource) {
       return res.status(404).json({ error: "Resource not found" });
     }
@@ -37,9 +37,9 @@ const getResourceById = async (req, res) => {
 
 const updateResourceById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { resourceId } = req.params;
     const { name, type, link } = req.body;
-    const resource = await Resource.findByPk(id);
+    const resource = await Resource.findByPk(resourceId);
     if (!resource) {
       return res.status(404).json({ error: "Resource not found" });
     }
@@ -56,8 +56,8 @@ const updateResourceById = async (req, res) => {
 
 const deleteResourceById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const resource = await Resource.findByPk(id);
+    const { resourceId } = req.params;
+    const resource = await Resource.findByPk(resourceId);
     if (!resource) {
       return res.status(404).json({ error: "Resource not found" });
     }

@@ -1,4 +1,4 @@
-const { Course } = require("../models/course");
+const { Course } = require("../db");
 
 const createCourse = async (req, res) => {
   try {
@@ -23,8 +23,8 @@ const getCourses = async (req, res) => {
 
 const getCourseById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const course = await Course.findByPk(id);
+    const { courseId } = req.params;
+    const course = await Course.findByPk(courseId);
     if (!course) {
       return res.status(404).json({ error: "Course not found" });
     }
@@ -37,9 +37,9 @@ const getCourseById = async (req, res) => {
 
 const updateCourseById = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { courseId } = req.params;
     const { name, category, duration, price } = req.body;
-    const course = await Course.findByPk(id);
+    const course = await Course.findByPk(courseId);
     if (!course) {
       return res.status(404).json({ error: "Course not found" });
     }
@@ -53,8 +53,8 @@ const updateCourseById = async (req, res) => {
 
 const deleteCourseById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const course = await Course.findByPk(id);
+    const { courseId } = req.params;
+    const course = await Course.findByPk(courseId);
     if (!course) {
       return res.status(404).json({ error: "Course not found" });
     }
