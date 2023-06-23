@@ -1,4 +1,4 @@
-const { Resource } = require("../models/resource");
+const { Resource } = require("../db");
 
 const createResource = async (req, res) => {
   try {
