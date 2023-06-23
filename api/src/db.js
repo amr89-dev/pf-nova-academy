@@ -46,7 +46,7 @@ const {
   Module,
   Payment,
   ProgressLesson,
-  Resourse,
+  Resource,
   Review,
   User,
 } = sequelize.models;
@@ -88,8 +88,8 @@ Payment.belongsTo(Course, { foreignKey: "courseId" });
 Module.hasMany(Lesson, { foreignKey: "moduleId" });
 Lesson.belongsTo(Module, { foreignKey: "moduleId" });
 //falta comentar
-Lesson.belongsTo(Resourse, { foreignKey: "resourseId" });
-Resourse.hasOne(Lesson, { foreignKey: "resourseId" });
+Lesson.belongsTo(Resource, { foreignKey: "resourceId" });
+Resource.hasOne(Lesson, { foreignKey: "resourceId" });
 //falta comentar
 Course.hasMany(Category, { foreignKey: "courseId" });
 Category.belongsTo(Course, { foreignKey: "courseId" });
