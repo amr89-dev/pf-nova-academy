@@ -23,3 +23,5 @@ const validateUser = [
     validateResult(req, res, next);
   },
 ];
+
+module.exports = validateResult
