@@ -9,13 +9,13 @@ const moduleRoute = require("./moduleRoutes.js")
 const paymentRoute = require("./paymentRoutes.js")
 const progressLessonRoute = require("./progressLessonRoutes.js")
 const resourceRoute = require("./resourceRoutes.js")
-const coursesRoute = require("./courseRoutes.js");
+const courseRoute = require("./courseRoutes.js");
 const reviewRoute = require('./reviewRoutes.js');
 const userRoute = require('./userRoutes.js');
 
 const router = Router();
 
-router.use("/courses", coursesRoute);
+router.use("/courses", courseRoute);
 router.use("/category", categoryRoute);
 router.use("/certificate", certificateRoute);
 router.use("/enrollment", enrollmentRoute);
