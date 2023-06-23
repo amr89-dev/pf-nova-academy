@@ -7,6 +7,6 @@ courseRoutes.get("/", getCourses)
 courseRoutes.get("/:courseId", getCourseById)
 courseRoutes.post("/", createCourse)
 courseRoutes.put("/:courseId", updateCourseById)
-courseRoutes.delete("/:couseId", deleteCourseById)
+courseRoutes.delete("/:courseId", deleteCourseById)
 
 module.exports = courseRoutes;
