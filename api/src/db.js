@@ -88,8 +88,8 @@ Payment.belongsTo(Course, { foreignKey: "courseId" });
 Module.hasMany(Lesson, { foreignKey: "moduleId" });
 Lesson.belongsTo(Module, { foreignKey: "moduleId" });
 //falta comentar
-Lesson.belongsTo(Resource, { foreignKey: "resourseId" }); 
-Resource.hasOne(Lesson, { foreignKey: "resourseId" });//error------>
+Lesson.belongsTo(Resource, { foreignKey: "resourceId" });
+Resource.hasOne(Lesson, { foreignKey: "resourceId" });
 //falta comentar
 Course.hasMany(Category, { foreignKey: "courseId" });
 Category.belongsTo(Course, { foreignKey: "courseId" });

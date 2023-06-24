@@ -1,4 +1,6 @@
 const { User } = require("../db");
+const { createtoken } = require("../helpers/generateToken");
+const { compare } = require("../helpers/handleBcrypt");
 
 const createUser = async (req, res) => {
   try {
@@ -7,13 +9,32 @@ const createUser = async (req, res) => {
     const user = await User.create({
       name,
       email,
-      password,
+      password: await encrypt(password),
       role,
     });
     res.json(user);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Error creating user" });
+  }
+};
+
+const getLoginUser = async (req, res) => {
+  const { email, password } = req.body; // Se extraen el correo electrónico y la contraseña del cuerpo de la solicitud
+  try {
+    const user = await User.findOne({ where: { email: email } }); // Se busca en la base de datos un usuario con el correo electrónico proporcionado
+    if (!user) throw Error("User not found"); // Si no se encuentra ningún usuario, se lanza un error
+    const checkPassword = await compare(password, user.password); // Se compara la contraseña proporcionada con la contraseña almacenada en la base de datos
+    const tokenSession = await createtoken(user); // Si la contraseña coincide, se crea un token de sesión
+    if (checkPassword)
+      res
+        .status(200)
+        .json(
+          tokenSession
+        ); // Se devuelve el token de sesión como respuesta con un estado 200
+    else throw Error("Invalid password"); // Si la contraseña no coincide, se lanza un error
+  } catch (error) {
+    res.status(500).json({ error: error.message }); // Si ocurre algún error durante el proceso, se devuelve un estado 500 con un mensaje de error
   }
 };
 
@@ -30,7 +51,7 @@ const getUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
     const { userId } = req.params;
-    console.log(userId)
+    console.log(userId);
     const user = await User.findByPk(userId);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -75,6 +96,7 @@ const deleteUserById = async (req, res) => {
 
 module.exports = {
   createUser,
+  getLoginUser,
   getUsers,
   getUserById,
   updateUserById,
