@@ -3,6 +3,7 @@ const { User } = require("../db");
 const createUser = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
+    console.log(role)
     const user = await User.create({
       name,
       email,
