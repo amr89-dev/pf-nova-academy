@@ -7,16 +7,18 @@ import MyAccount from "./pages/MyAccount";
 import MyOrder from "./pages/MyOrder";
 import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
+import Home from "./pages/Home";
 
 const AppRouter = () => {
   let routes = useRoutes([
     { path: "/", element: <Landing /> },
+    { path: "/home", element: <Home /> },
     { path: "/admin", element: <Admin /> },
     { path: "/checkout", element: <Checkout /> },
     { path: "/courses", element: <Courses /> },
     { path: "/account", element: <MyAccount /> },
     { path: "/order", element: <MyOrder /> },
-    { path: "/signin", element: <SingIn /> },
+    { path: "/login", element: <SingIn /> },
     { path: "/*", element: <NotFound /> },
   ]);
 
