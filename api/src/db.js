@@ -41,49 +41,38 @@ const {
   Category,
   Certificate,
   Course,
-  Enrollment,
   Lesson,
   Module,
   Payment,
-  ProgressLesson,
+  ProgressCourse,
   Resource,
   Review,
   User,
+  Profile
 } = sequelize.models;
 
+
+// Relacion entre Usurio y Perfil (Uno a Uno)
+Profile.hasOne(User, {foreignKey: 'userId'});
+User.belongsTo(Profile);
 // Relación entre Usuario y Curso (muchos a muchos)
-User.belongsToMany(Course, { through: "userCourse", foreignKey: "userId" });
-Course.belongsToMany(User, { through: "userCourse", foreignKey: "courseId" });
-// relacion entre  progresslesson  y user de uno a  muchos
-User.hasMany(ProgressLesson, { foreignKey: "userId" });
-ProgressLesson.belongsTo(User, { foreignKey: "userId" });
-// relacion entre curso y progressLesson uno a muchos
-Course.hasMany(ProgressLesson, { foreignKey: "courseId" });
-ProgressLesson.belongsTo(Course, { foreignKey: "courseId" });
-// falta comentar
-Lesson.hasMany(ProgressLesson, { foreignKey: "lessonId" });
-ProgressLesson.belongsTo(Lesson, { foreignKey: "lessonId" });
+Profile.belongsToMany(Course, { through: "profile_Course", foreignKey: "profileId" });
+Course.belongsToMany(Profile, { through: "profile_Course", foreignKey: "courseId" });
+// relacion entre  progresslesson  y Profile de uno a  muchos
+Profile.hasMany(ProgressCourse, { foreignKey: "profileId" });
+ProgressCourse.belongsTo(Profile, { foreignKey: "profileId" });
 //falta comentar
-User.hasMany(Certificate, { foreignKey: "userId" });
-Certificate.belongsTo(User, { foreignKey: "userId" });
+Profile.hasMany(Certificate, { foreignKey: "profileId" });
+Certificate.belongsTo(Profile, { foreignKey: "profileId" });
 //falta comentar
-Lesson.hasMany(Review, { foreignKey: "lessonId" });
-Review.belongsTo(Lesson, { foreignKey: "lessonId" });
+Course.hasMany(Review, { foreignKey: "lessonId" });
+Review.belongsTo(Course, { foreignKey: "lessonId" });
 //falta comentar
 Course.hasMany(Module, { foreignKey: "courseId" });
 Module.belongsTo(Course, { foreignKey: "courseId" });
 //falta comentar
-User.hasMany(Enrollment, { foreignKey: "userId" });
-Enrollment.belongsTo(User, { foreignKey: "userId" });
-//falta comentar
-Course.hasMany(Enrollment, { foreignKey: "courseId" });
-Enrollment.belongsTo(Course, { foreignKey: "courseId" });
-//falta comentar
-User.hasMany(Payment, { foreignKey: "userId" });
-Payment.belongsTo(User, { foreignKey: "userId" });
-//falta comentar
-Course.hasMany(Payment, { foreignKey: "courseId" });
-Payment.belongsTo(Course, { foreignKey: "courseId" });
+Profile.hasMany(Payment, { foreignKey: "profileId" });
+Payment.belongsTo(Profile, { foreignKey: "profileId" });
 //falta comentar
 Module.hasMany(Lesson, { foreignKey: "moduleId" });
 Lesson.belongsTo(Module, { foreignKey: "moduleId" });
@@ -91,9 +80,8 @@ Lesson.belongsTo(Module, { foreignKey: "moduleId" });
 Lesson.belongsTo(Resource, { foreignKey: "resourceId" });
 Resource.hasOne(Lesson, { foreignKey: "resourceId" });
 //falta comentar
-Course.hasMany(Category, { foreignKey: "courseId" });
-Category.belongsTo(Course, { foreignKey: "courseId" });
-// Relación entre Curso y Módulo (uno a muchos)
+Category.belongsToMany(Course, { through: "course_category", foreignKey: "courseId" });
+Course.belongsToMany(Category, { through: "course_category", foreignKey: "categoryId" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

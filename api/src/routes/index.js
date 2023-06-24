@@ -3,7 +3,6 @@ const { Router } = require('express');
 const courseRoutes = require("./courseRoutes.js")
 const categoryRoutes = require("./categoryRoutes.js")
 const certificateRoutes = require("./certificateRoutes.js")
-const enrollmentRoutes = require("./enrollmentRoutes.js")
 const lessonRoutes = require("./lessonRoutes.js")
 const moduleRoutes = require("./moduleRoutes.js")
 const paymentRoutes = require("./paymentRoutes.js")
@@ -17,7 +16,6 @@ const router = Router();
 router.use("/courses", courseRoutes);
 router.use("/category", categoryRoutes);
 router.use("/certificate", certificateRoutes);
-router.use("/enrollment", enrollmentRoutes);
 router.use("/lesson", lessonRoutes);
 router.use("/module", moduleRoutes);
 router.use("/payment", paymentRoutes);

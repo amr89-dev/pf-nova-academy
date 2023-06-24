@@ -2,25 +2,24 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Enrollment",
+    "ProgressCourse",
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      start_date: {
-        type: DataTypes.DATE,
+      completed: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
       },
-      end_date: {
-        type: DataTypes.DATE,
-      },
-      course_score: {
+      played_time: {
         type: DataTypes.INTEGER,
+        allowNull: true,
       },
     },
     {
-  
+      
       timestamps: false,
     }
   );
