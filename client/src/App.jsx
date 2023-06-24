@@ -1,3 +1,4 @@
+import { useRoutes } from "react-router-dom";
 import Admin from "./pages/Admin";
 import Checkout from "./pages/Checkout";
 import Courses from "./pages/Courses";
@@ -7,19 +8,22 @@ import MyOrder from "./pages/MyOrder";
 import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
 
+const AppRouter = () => {
+  let routes = useRoutes([
+    { path: "/", element: <Landing /> },
+    { path: "/admin", element: <Admin /> },
+    { path: "/checkout", element: <Checkout /> },
+    { path: "/courses", element: <Courses /> },
+    { path: "/account", element: <MyAccount /> },
+    { path: "/order", element: <MyOrder /> },
+    { path: "/signin", element: <SingIn /> },
+    { path: "/*", element: <NotFound /> },
+  ]);
+
+  return routes;
+};
 const App = () => {
-  return (
-    <div>
-      <Admin />
-      <Landing />
-      <Checkout />
-      <Courses />
-      <MyAccount />
-      <MyOrder />
-      <SingIn />
-      <NotFound />
-    </div>
-  );
+  return <div>{<AppRouter />}</div>;
 };
 
 export default App;
