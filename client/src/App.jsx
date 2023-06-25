@@ -22,7 +22,6 @@ const AppRouter = () => {
     { path: "/order", element: <MyOrder /> },
     { path: "/login", element: <SingIn /> },
     { path: "/*", element: <NotFound /> },
-    { path: "/banner*", element: <Banner /> },
   ]);
 
   return routes;
@@ -32,6 +31,7 @@ const App = () => {
     <div>
       <AppRouter />
       <NavBar />
+      <Banner />
     </div>
   );
 };
