@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
     <div className="sm:mx-auto sm:container px-6 xl:px-0">
@@ -29,7 +31,7 @@ const Banner = () => {
           <div className="mt-8 flex justify-center items-center w-full">
             <button className="hover:opacity-75 flex justify-center bg-gray-800 sm:w-32 w-full h-10 py-3">
               <p className="text-base font-medium leading-none text-white">
-                Registrarme
+                <Link to="/login">Registrate</Link>
               </p>
             </button>
           </div>
