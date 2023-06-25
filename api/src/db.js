@@ -52,7 +52,7 @@ const {
 } = sequelize.models;
 
 // Relacion entre Usurio y Perfil (Uno a Uno)
-User.hasOne(Profile , {foreignKey: 'userId'});
+User.hasOne(Profile , {foreignKey: 'userId', onDelete: 'CASCADE'});
 Profile.belongsTo(User,{foreignKey: 'userId'});
 // Relación entre Usuario y Curso (muchos a muchos)
 Profile.belongsToMany(Course, { through: "profile_Course", foreignKey: "profileId" });
