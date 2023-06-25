@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
+import Carrousel from "./components/Carrousel/Index";
 
 const AppRouter = () => {
   let routes = useRoutes([
@@ -25,11 +26,13 @@ const AppRouter = () => {
 
   return routes;
 };
+
 const App = () => {
   return (
     <div>
       <AppRouter />
       <NavBar />
+      <Carrousel />
     </div>
   );
 };
