@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
+import Banner from "./components/Banner/Banner";
 
 const AppRouter = () => {
   let routes = useRoutes([
@@ -21,6 +22,7 @@ const AppRouter = () => {
     { path: "/order", element: <MyOrder /> },
     { path: "/login", element: <SingIn /> },
     { path: "/*", element: <NotFound /> },
+    { path: "/banner*", element: <Banner /> },
   ]);
 
   return routes;
