@@ -1,0 +1,49 @@
+const mercadopago = require('mercadopago');
+const {YOUR_ACCESS_TOKEN} = process.env;
+
+// Configurar el acceso al SDK de MercadoPago
+mercadopago.configure({
+  access_token: YOUR_ACCESS_TOKEN
+});
+
+// Controlador para realizar un pago
+const createPayment = async (req, res) => {
+  try {
+    const prod = req.body;
+
+    // Crear el objeto de preferencia de pago
+    const preference = {
+      items: [
+        {
+          id: 123,  
+          title: prod.title,
+          picture_url: prod.image,
+          description: prod.description,
+          category_id: 'art',
+          quantity: 1,
+          unit_price: prod.price,
+        }
+      ],
+      back_urls:{
+        success: 'http://localhost:3001',
+        failure: '',
+        pending: '',
+      },
+      auto_return: 'approved',
+      binary_mode: true,
+    };
+
+    // Crear la preferencia de pago
+    const response = await mercadopago.preferences.create(preference);
+
+    // Redireccionar al usuario a la página de pago de MercadoPago
+    return res.redirect(response.body.init_point);
+  } catch (error) {
+    console.error('Error al crear el pago:', error);
+    return res.status(500).json({ error: 'Ocurrió un error al crear el pago.' });
+  }
+};
+
+module.exports = {
+  createPayment
+};
