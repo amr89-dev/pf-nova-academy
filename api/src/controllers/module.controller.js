@@ -2,8 +2,9 @@ const { Module } = require("../db");
 
 const createModule = async (req, res) => {
   try {
-    const { name, description, order } = req.body;
-    const module = await Module.create({ name, description, order });
+    const { name, description, order, courseId} = req.body;
+    console.log(courseId)
+    const module = await Module.create({ name, description, order, courseId});
     res.json(module);
   } catch (error) {
     console.error(error);
