@@ -19,8 +19,8 @@ const NavBar = () => {
 
   const activeStyle = "font-bold";
   return (
-    <header className="bg-primary-blue h-8 flex items-center justify-between px-4 ">
-      <div className="-mr-2  flex md:hidden">
+    <header className="bg-primary-blue h-auto flex items-center justify-between  px-4 py-1">
+      <div className="-mr-2  flex basis-1/3 md:hidden">
         <button onClick={toggleMenu}>
           <svg
             className={`h-6 w-6 ${isOpen ? "hidden" : "block"}`}
@@ -52,9 +52,13 @@ const NavBar = () => {
           </svg>
         </button>
       </div>
+
+      <NavLink to="/home">
+        <img src={logo} alt="logo" className="w-24 h-auto basis-1/3" />
+      </NavLink>
       <div>
         <nav
-          className={`bg-primary-purple fixed z-10 top-8 left-0 p-4 w-1/2  transform ${
+          className={`bg-primary-purple basis-1/3 fixed z-10 top-8 left-0 p-4 w-1/2  transform ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out md:static md:w-auto md:p-0 md:translate-x-0`}
         >
@@ -71,7 +75,6 @@ const NavBar = () => {
             ))}
           </ul>
         </nav>
-        <NavLink to="/home">🎓</NavLink>
       </div>
       <nav>
         <ul className="flex">
