@@ -10,7 +10,6 @@ export default {
       "second-blue": "#088BFF",
       "light-gray": "#808080",
       "dark-gray": "#4D4D4D",
-      white: "fff",
     },
     fontFamily: {
       montserrat: ["Montserrat", "sans-serif"],

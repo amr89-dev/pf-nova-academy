@@ -13,7 +13,7 @@ const NavBar = () => {
 
   const activeStyle = "font-bold";
   return (
-    <header className="bg-primary-blue h-auto flex items-center justify-between  px-4 py-1">
+    <header className="bg-primary-blue w-full h-auto flex items-center justify-between  px-4 py-1">
       <div className="-mr-2  flex basis-1/3 md:hidden">
         <button onClick={toggleMenu}>
           <svg

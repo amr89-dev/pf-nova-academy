@@ -1,7 +1,12 @@
 import Layout from "../../Layout";
+import CourseCard from "../../components/CourseCards/CourseCard";
 
 const Courses = () => {
-  return <Layout>Courses</Layout>;
+  return (
+    <Layout>
+      <CourseCard />
+    </Layout>
+  );
 };
 
 export default Courses;
