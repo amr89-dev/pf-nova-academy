@@ -1,6 +1,7 @@
-const { User } = require("../db");
+const { User,Profile } = require("../db");
 const { createtoken } = require("../helpers/generateToken");
-const { compare } = require("../helpers/handleBcrypt");
+const { compare, encrypt } = require("../helpers/handleBcrypt");
+const profile = require("../models/profile");
 
 const createUser = async (req, res) => {
   try {
@@ -12,7 +13,11 @@ const createUser = async (req, res) => {
       password: await encrypt(password),
       role,
     });
-    res.json(user);
+    
+    const newPerfil = await Profile.create({
+      userId: user.userId, // ID del usuario se guarda en la columna 'userId' de la tabla 'Perfil'
+    });
+    res.json({user,newPerfil});
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Error creating user" });

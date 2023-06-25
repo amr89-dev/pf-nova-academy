@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     "User",
     {
-      id: {
+      userId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -22,8 +22,8 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       role: {
-        type: DataTypes.ENUM("SuperAdmin", "Teacher", "Student"),
-        default:"Student",
+        type: DataTypes.ENUM('user','admin'),
+        defaultValue:'user',
         allowNull: false
       }
     }, {
