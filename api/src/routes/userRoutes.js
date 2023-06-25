@@ -6,10 +6,10 @@ const VerifyAuthorization = require('../middleware/auth.js');
 const userRoutes = Router();
 
 
-userRoutes.get("/", getUsers)
-userRoutes.get("/:userId",VerifyAuthorization ,getUserById)
 userRoutes.get("/login",getLoginUser)
 userRoutes.post("/singup",validateUser,createUser)
+userRoutes.get("/", VerifyAuthorization, getUsers)
+userRoutes.get("/:userId", VerifyAuthorization,getUserById)
 userRoutes.put("/:userId", VerifyAuthorization,updateUserById)
 userRoutes.delete("/:userId", VerifyAuthorization,deleteUserById)
 
