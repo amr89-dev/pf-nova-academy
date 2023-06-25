@@ -8,7 +8,9 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-      }
+      },
+      photo:{type: DataTypes.STRING}
+      
     }
     , {
       tableName: 'Profile',
