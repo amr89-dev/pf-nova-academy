@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer/Footer";
 
 const AppRouter = () => {
   let routes = useRoutes([
@@ -30,6 +31,7 @@ const App = () => {
     <div>
       <NavBar />
       <AppRouter />
+      <Footer />
     </div>
   );
 };

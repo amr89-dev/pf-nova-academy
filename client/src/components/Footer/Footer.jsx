@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <footer>
-      <div className="p-10 bg-gray-800 text-gray-200">
+    <footer className="bg-dark-gray text-primary-blue fixed bottom-0 w-full">
+      <div className="p-2  h-auto text-gray-200">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
             <div className="mb-5">
@@ -19,15 +19,6 @@ const Footer = () => {
                 </li>
                 <li className="pb-4 relative">
                   <span className="mr-2">&#9658;</span> ¿Quienes somos?
-                </li>
-                <li className="pb-4 relative">
-                  <span className="mr-2">&#9658;</span> Ayuda y asistencia
-                </li>
-                <li className="pb-4 relative">
-                  <span className="mr-2">&#9658;</span> Afiliados
-                </li>
-                <li className="pb-4 relative">
-                  <span className="mr-2">&#9658;</span> Inversores
                 </li>
               </ul>
             </div>
