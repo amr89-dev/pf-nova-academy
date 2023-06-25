@@ -8,10 +8,6 @@ import MyOrder from "./pages/MyOrder";
 import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
 import Home from "./pages/Home";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer/Footer";
-import Carrousel from "./components/Carrousel";
-import Banner from "./components/Banner/Banner";
 
 const AppRouter = () => {
   let routes = useRoutes([
@@ -32,11 +28,7 @@ const AppRouter = () => {
 const App = () => {
   return (
     <div>
-      <NavBar />
       <AppRouter />
-      <Banner />
-      <Carrousel />
-      <Footer />
     </div>
   );
 };

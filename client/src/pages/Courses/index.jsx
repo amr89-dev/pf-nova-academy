@@ -1,5 +1,7 @@
+import Layout from "../../Layout";
+
 const Courses = () => {
-  return <div>Courses</div>;
+  return <Layout>Courses</Layout>;
 };
 
 export default Courses;
