@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer/Footer";
 import Carrousel from "./components/Carrousel";
+import Banner from "./components/Banner/Banner";
 
 const AppRouter = () => {
   let routes = useRoutes([
@@ -33,6 +34,7 @@ const App = () => {
     <div>
       <NavBar />
       <AppRouter />
+      <Banner />
       <Carrousel />
       <Footer />
     </div>
