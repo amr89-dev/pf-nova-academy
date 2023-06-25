@@ -10,9 +10,10 @@ const progressLessonRoutes = require("./progressLessonRoutes.js")
 const resourceRoutes = require("./resourceRoutes.js")
 const reviewRoutes = require('./reviewRoutes.js');
 const userRoutes = require('./userRoutes.js');
+const profileRoutes = require('./profileRoutes.js');
 
 const router = Router();
-
+router.use('/profile',profileRoutes)
 router.use("/courses", courseRoutes);
 router.use("/category", categoryRoutes);
 router.use("/certificate", certificateRoutes);
