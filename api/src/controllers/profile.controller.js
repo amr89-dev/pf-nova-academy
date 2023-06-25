@@ -16,4 +16,10 @@ const getProfile = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-module.exports = { getProfile };
+const postAddProfileCourse = (req, res) => {
+  try {
+   
+   
+  } catch (error) {}
+};
+module.exports = { getProfile, postAddProfileCourse };
