@@ -67,7 +67,7 @@ Certificate.belongsTo(Profile, { foreignKey: "profileId" });
 Course.hasMany(Review, { foreignKey: "lessonId" });
 Review.belongsTo(Course, { foreignKey: "lessonId" });
 //falta comentar
-Course.hasMany(Module, { foreignKey: "courseId" });
+Course.hasMany(Module, { foreignKey: "courseId"});
 Module.belongsTo(Course, { foreignKey: "courseId" });
 //falta comentar
 Profile.hasMany(Payment, { foreignKey: "profileId" });
