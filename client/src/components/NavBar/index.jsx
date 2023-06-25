@@ -9,13 +9,7 @@ const NavBar = () => {
     setIsOpen(!isOpen);
   };
 
-  const links = [
-    { to: "/login", name: "Iniciar Sesión" },
-    { to: "/category1", name: "Categoria Curso 1" },
-    { to: "/category2", name: "Categoria Curso 2" },
-    { to: "/category3", name: "Categoria Curso 3" },
-    { to: "/category4", name: "Categoria Curso 4" },
-  ];
+  const links = [{ to: "/courses", name: "Cursos" }];
 
   const activeStyle = "font-bold";
   return (
@@ -78,6 +72,9 @@ const NavBar = () => {
       </div>
       <nav>
         <ul className="flex">
+          <li>
+            <NavLink to="/login">Iniciar Sesion</NavLink>
+          </li>
           <li>
             <NavLink to="/account">👤</NavLink>
           </li>
