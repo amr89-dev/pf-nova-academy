@@ -1,5 +1,3 @@
-
-
 const {Router} = require('express');
 const {createPayment} = require ("../controllers/mercadoPago.controller");
 const mercadoPagoRoutes = Router();

@@ -64,8 +64,8 @@ ProgressCourse.belongsTo(Profile, { foreignKey: "profileId" });
 Profile.hasMany(Certificate, { foreignKey: "profileId" });
 Certificate.belongsTo(Profile, { foreignKey: "profileId" });
 //falta comentar
-Course.hasMany(Review, { foreignKey: "lessonId" });
-Review.belongsTo(Course, { foreignKey: "lessonId" });
+Course.hasMany(Review, { foreignKey: "courseId" });
+Review.belongsTo(Course, { foreignKey: "courseId" });
 //falta comentar
 Course.hasMany(Module, { foreignKey: "courseId"});
 Module.belongsTo(Course, { foreignKey: "courseId" });
@@ -76,8 +76,8 @@ Payment.belongsTo(Profile, { foreignKey: "profileId" });
 Module.hasMany(Lesson, { foreignKey: "moduleId" });
 Lesson.belongsTo(Module, { foreignKey: "moduleId" });
 //falta comentar
-Lesson.belongsTo(Resource, { foreignKey: "resourceId" });
-Resource.hasOne(Lesson, { foreignKey: "resourceId" });
+Lesson.hasOne(Resource, { foreignKey: "lessonId" });
+Resource.belongsTo(Lesson, { foreignKey: "lessonId" });
 //falta comentar
 Category.belongsToMany(Course, { through: "course_category", foreignKey: "courseId" });
 Course.belongsToMany(Category, { through: "course_category", foreignKey: "categoryId" });
