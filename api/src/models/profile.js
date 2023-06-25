@@ -4,12 +4,13 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Profile",
     {
-      id: {
+      profileId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       }
-    }, {
+    }
+    , {
       tableName: 'Profile',
       timestamps: false
     }
