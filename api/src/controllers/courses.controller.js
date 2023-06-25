@@ -2,7 +2,7 @@ const { Course } = require("../db");
 
 const createCourse = async (req, res) => {
   try {
-    const { name, category, duration, price } = req.body;
+    const { name, category, duration, price} = req.body;
     const course = await Course.create({ name, category, duration, price });
     res.json(course);
   } catch (error) {
