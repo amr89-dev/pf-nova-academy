@@ -4,29 +4,31 @@ module.exports = (sequelize) => {
   sequelize.define(
     "User",
     {
-      id: {
+      userId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
       name: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.STRING(50),
+        allowNull: false
       },
       email: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         allowNull: false,
-        unique: true,
       },
       password: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       role: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-    },
-    { timestamps: false }
+        type: DataTypes.ENUM('user','admin'),
+        defaultValue:'user',
+        allowNull: false
+      }
+    }, {
+      tableName: 'User',
+      timestamps: false
+    }
   );
 };

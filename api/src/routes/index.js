@@ -1,13 +1,27 @@
 const { Router } = require('express');
 // Importar todos los routers;
-const coursesCtrl = require("../controllers/courses.controller")
+const courseRoutes = require("./courseRoutes.js")
+const categoryRoutes = require("./categoryRoutes.js")
+const certificateRoutes = require("./certificateRoutes.js")
+const lessonRoutes = require("./lessonRoutes.js")
+const moduleRoutes = require("./moduleRoutes.js")
+const paymentRoutes = require("./paymentRoutes.js")
+const progressLessonRoutes = require("./progressLessonRoutes.js")
+const resourceRoutes = require("./resourceRoutes.js")
+const reviewRoutes = require('./reviewRoutes.js');
+const userRoutes = require('./userRoutes.js');
 
 const router = Router();
 
-router.post("/courses", coursesCtrl.createCourse)
-router.get("/courses", coursesCtrl.getCourses)
-router.get("/courses:courseId", coursesCtrl.getCoursById)
-router.put("/courses:courseId", coursesCtrl.updateCourseById)
-router.delete("/courses:cousesId", coursesCtrl.deleteCourseById)
+router.use("/courses", courseRoutes);
+router.use("/category", categoryRoutes);
+router.use("/certificate", certificateRoutes);
+router.use("/lesson", lessonRoutes);
+router.use("/module", moduleRoutes);
+router.use("/payment", paymentRoutes);
+router.use("/progresslesson", progressLessonRoutes);
+router.use("/resource", resourceRoutes);
+router.use("/review", reviewRoutes);
+router.use("/user", userRoutes);
 
 module.exports = router;

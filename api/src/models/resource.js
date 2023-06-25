@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Module",
+    "Resource",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -10,17 +10,19 @@ module.exports = (sequelize) => {
         autoIncrement: true,
       },
       name: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING,
+        allowNull: false,
       },
-      description: {
-        type: DataTypes.TEXT,
+      type: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
-      order: {
-        type: DataTypes.INTEGER,
+      link: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
     },
     {
- 
       timestamps: false,
     }
   );

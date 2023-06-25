@@ -2,25 +2,24 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Module",
+    "ProgressCourse",
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
-        type: DataTypes.STRING(100),
+      completed: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
       },
-      description: {
-        type: DataTypes.TEXT,
-      },
-      order: {
+      played_time: {
         type: DataTypes.INTEGER,
+        allowNull: true,
       },
     },
     {
- 
+      
       timestamps: false,
     }
   );
