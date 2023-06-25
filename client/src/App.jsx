@@ -28,8 +28,8 @@ const AppRouter = () => {
 const App = () => {
   return (
     <div>
-      <AppRouter />
       <NavBar />
+      <AppRouter />
     </div>
   );
 };
