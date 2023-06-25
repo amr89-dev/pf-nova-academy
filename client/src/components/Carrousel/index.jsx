@@ -48,7 +48,7 @@ const Carrousel = () => {
         ))}
       </div>
       <button
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 px-4 py-2 rounded border-radius: 0.25rem hover:underline rounded-full"
+        className="absolute top-1/2 left-0 transform -translate-y-1/2 px-4 py-2  border-radius: 0.25rem hover:underline rounded-full"
         onClick={prev}
         aria-label="Prev"
         style={{ backgroundColor: "rgb(226 232 240)" }}

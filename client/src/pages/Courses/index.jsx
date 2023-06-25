@@ -1,10 +1,10 @@
 import Layout from "../../Layout";
-import CourseCard from "../../components/CourseCards/CourseCard";
+import CourseCards from "../../components/CourseCards/CourseCards";
 
 const Courses = () => {
   return (
     <Layout>
-      <CourseCard />
+      <CourseCards />
     </Layout>
   );
 };
