@@ -10,6 +10,7 @@ import SingIn from "./pages/SingIn";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer/Footer";
+import Carrousel from "./components/Carrousel";
 
 const AppRouter = () => {
   let routes = useRoutes([
@@ -26,12 +27,14 @@ const AppRouter = () => {
 
   return routes;
 };
+
 const App = () => {
   return (
     <div>
       <NavBar />
       <AppRouter />
       <Footer />
+      <Carrousel />
     </div>
   );
 };
