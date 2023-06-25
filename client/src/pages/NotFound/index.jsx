@@ -1,5 +1,6 @@
+import Layout from "../../Layout";
 const NotFound = () => {
-  return <div className="bg-primary-purple">NotFound</div>;
+  return <Layout>NotFound</Layout>;
 };
 
 export default NotFound;
