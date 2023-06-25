@@ -33,8 +33,8 @@ const App = () => {
     <div>
       <NavBar />
       <AppRouter />
-      <Footer />
       <Carrousel />
+      <Footer />
     </div>
   );
 };
