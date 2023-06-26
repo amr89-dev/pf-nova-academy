@@ -48,7 +48,7 @@ const SingIn = () => {
   };
 
   if (loggedIn) {
-    return <Redirect to="/" />; // Redirecciona a la pagina de perfil-home con sus datos
+    return <redirect to="/" />; // Redirecciona a la pagina de perfil-home con sus datos
   }
 
   const clientID =
