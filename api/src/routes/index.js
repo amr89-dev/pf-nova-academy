@@ -5,6 +5,7 @@ const categoryRoutes = require("./categoryRoutes.js")
 const certificateRoutes = require("./certificateRoutes.js")
 const enrollmentRoutes = require("./enrollmentRoutes.js")
 const lessonRoutes = require("./lessonRoutes.js")
+const mercadoPagoRoutes = require("./mercadoPagoRoutes.js")
 const moduleRoutes = require("./moduleRoutes.js")
 const paymentRoutes = require("./paymentRoutes.js")
 const progressLessonRoutes = require("./progressLessonRoutes.js")
@@ -19,6 +20,7 @@ router.use("/category", categoryRoutes);
 router.use("/certificate", certificateRoutes);
 router.use("/enrollment", enrollmentRoutes);
 router.use("/lesson", lessonRoutes);
+router.use("/mercadopago", mercadoPagoRoutes);
 router.use("/module", moduleRoutes);
 router.use("/payment", paymentRoutes);
 router.use("/progresslesson", progressLessonRoutes);
