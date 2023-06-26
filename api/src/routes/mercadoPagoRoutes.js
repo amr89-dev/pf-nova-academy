@@ -3,7 +3,7 @@ const {createPayment} = require ("../controllers/mercadoPago.controller");
 const mercadoPagoRoutes = Router();
 
 // Ruta para realizar el pago
-mercadoPagoRoutes.post('/mercadopago', createPayment);
+mercadoPagoRoutes.post('/', createPayment);
 
 module.exports = mercadoPagoRoutes;
 

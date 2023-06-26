@@ -1,5 +1,7 @@
+require("dotenv").config();
 const mercadopago = require('mercadopago');
 const {YOUR_ACCESS_TOKEN} = process.env;
+
 
 // Configurar el acceso al SDK de MercadoPago
 mercadopago.configure({
@@ -17,6 +19,7 @@ const createPayment = async (req, res) => {
         {
           id: 123,  
           title: prod.title,
+          currency_id: "ARS",
           picture_url: prod.image,
           description: prod.description,
           category_id: 'art',
@@ -34,13 +37,18 @@ const createPayment = async (req, res) => {
     };
 
     // Crear la preferencia de pago
-    const response = await mercadopago.preferences.create(preference);
+    /*const response = await mercadopago.preferences.create(preference);*/
+
+    mercadopago.preferences.create(preference).then((response) =>
+    res.status(200).send({response}))
 
     // Redireccionar al usuario a la página de pago de MercadoPago
-    return res.redirect(response.body.init_point);
+    /*return res.redirect(response.body.init_point);*/
+    
   } catch (error) {
     console.error('Error al crear el pago:', error);
-    return res.status(500).json({ error: 'Ocurrió un error al crear el pago.' });
+    return res.status(500).json({ error: error.message });
+
   }
 };
 

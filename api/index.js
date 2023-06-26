@@ -20,6 +20,4 @@ const main = async () => {
 };
 main();
 
-/*server.post('/mercadopago', (req, res) =>{
-  res.status(200).send("funciona");
-})*/
+
