@@ -16,7 +16,7 @@ const cursos = [
     duration: "10 semanas",
     images: ["https://example.com/biology-course.jpg"],
   },
-  // Agrega más cursos aquí...
+
   {
     name: "Curso de Programación Python",
     category: ["Programación"],
@@ -24,6 +24,22 @@ const cursos = [
     price: 100,
     duration: "6 semanas",
     images: ["https://example.com/python-course.jpg"],
+  },
+  {
+    name: 'Curso de Matemáticas Avanzadas',
+    category: ['Matemáticas'],
+    description: 'Aprende conceptos avanzados de matemáticas con este curso.',
+    price: 150,
+    duration: '8 semanas',
+    images: ['https://example.com/math-course.jpg']
+  },
+  {
+    name: 'Curso de Física Cuántica',
+    category: ['Ciencias Naturales'],
+    description: 'Explora los fundamentos de la física cuántica en este curso.',
+    price: 200,
+    duration: '6 semanas',
+    images: ['https://example.com/quantum-physics-course.jpg']
   },
 ];
 
@@ -62,4 +78,32 @@ const users = [
   
 ];
 
-module.exports = { cursos, category, users };
+const generateCourseObjects = (courses, count) => {
+  const generatedCourses = [];
+
+  const categoryNames = category.map(cat => cat.name);
+
+  for (let i = 0; i < count; i++) {
+    const randomCourse = courses[Math.floor(Math.random() * courses.length)];
+    const randomCategory = categoryNames[Math.floor(Math.random() * categoryNames.length)];
+
+    const course = {
+      name: randomCourse.name,
+      category: [randomCategory],
+      description: randomCourse.description,
+      price: randomCourse.price,
+      duration: randomCourse.duration,
+      images: randomCourse.images,
+    };
+
+    generatedCourses.push(course);
+  }
+
+  return generatedCourses;
+};
+
+
+const generatedCourses = generateCourseObjects(cursos, 40);
+
+
+module.exports = { cursos, category, users,generateCourseObjects,generatedCourses };

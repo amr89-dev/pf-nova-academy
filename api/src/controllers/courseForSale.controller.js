@@ -24,13 +24,15 @@ const postCreateCourseForSale = async (req, res) => {
 const getCourseForSale = async (req, res) => {
   try {
     /*   const user = await getUserToken(req); */
+
     const courseAll = await CourseForSale.findAll({
       include: {
         model: Profile,
         attributes: { exclude: ["photo"] },
       },
     });
-    res.send(courseAll);
+    const courseCount = await CourseForSale.count();
+    res.send({courseCount,courseAll});
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

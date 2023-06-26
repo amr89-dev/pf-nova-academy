@@ -1,4 +1,4 @@
-const { category, users,cursos } = require("../constants/data");
+const { category, users,cursos, generateCourseObjects, generatedCourses } = require("../constants/data");
 const { conn } = require("../db");
 const { Op } = require('sequelize');
 const { Category, User ,Profile,CourseForSale} = require("../db");
@@ -42,14 +42,17 @@ const loaderUsers = async () => {
 
 const loaderCourseForSale = async () => {
     const profileIds = await Profile.findAll({ attributes: ['profileId'] });
-  
+    const objGnerated= generateCourseObjects(cursos,20)
+   
     const coursesToAdd = profileIds.flatMap(profile => {
-      return cursos.map(cur => {
+      return objGnerated.map(cur => {
+        
         return {
           name: cur.name,
           category: cur.category,
           duration: cur.duration,
           description: cur.description,
+          images: cur.images,
           price: cur.price,
           idProfile: profile.profileId,
         };
