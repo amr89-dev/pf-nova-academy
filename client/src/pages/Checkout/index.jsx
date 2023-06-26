@@ -1,12 +1,15 @@
 import { useSelector } from "react-redux";
 import Layout from "../../Layout";
+import CourseCard from "../../components/CourseCard/CourseCard";
 
 const Checkout = () => {
-  const cart = useSelector((state) => state).shoppingCartReducer.cart;
-  console.log(cart);
+  const coursesCart = useSelector((state) => state).shoppingCartReducer.cart;
+  console.log(coursesCart);
   return (
     <Layout>
-      <h2>Checkout</h2>
+      {coursesCart?.map((el) => (
+        <CourseCard key={el.id} dataCard={el} />
+      ))}
     </Layout>
   );
 };
