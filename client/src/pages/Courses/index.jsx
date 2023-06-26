@@ -1,10 +1,10 @@
 import Layout from "../../Layout";
 import CourseCards from "../../components/CourseCards/CourseCards";
-
-const Courses = () => {
+//eslint-disable-next-line
+const Courses = ({ courses }) => {
   return (
     <Layout>
-      <CourseCards />
+      <CourseCards courses={courses} />
     </Layout>
   );
 };

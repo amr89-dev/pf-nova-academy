@@ -1,10 +1,7 @@
-import NavBar from "../components/NavBar";
-
 // eslint-disable-next-line
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col items-center">
-      <NavBar />
+    <div className="flex flex-col items-center mx-auto max-w-screen-lg">
       {children}
     </div>
   );
