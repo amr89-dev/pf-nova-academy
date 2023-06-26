@@ -52,7 +52,7 @@ const NavBar = () => {
       </NavLink>
       <div>
         <nav
-          className={`bg-primary-purple basis-1/3 fixed z-10 top-8 left-0 p-4 w-1/2  transform ${
+          className={`bg-primary-purple basis-1/3 fixed z-10 top-16 left-0 p-4 w-1/2  transform ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out md:static md:w-auto md:p-0 md:translate-x-0`}
         >

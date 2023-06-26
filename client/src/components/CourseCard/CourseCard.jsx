@@ -1,8 +1,23 @@
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/actions/shoppingCartActions";
+
 /* eslint-disable */
+
 const CourseCard = ({ dataCard }) => {
   const { title, price, description, images, category } = dataCard;
+  const dispatch = useDispatch();
+
+  const handleCart = (data) => {
+    dispatch(addToCart(data));
+  };
+
   return (
-    <div className="w-64 h-auto bg-light-gray rounded-md p-3 cursor-pointer">
+    <div
+      className="w-64 h-auto bg-light-gray rounded-md p-3 cursor-pointer"
+      onClick={() => {
+        handleCart(dataCard);
+      }}
+    >
       <figure className=" relative  h-auto w-full">
         <span className="absolute bottom-0 left-0 bg-[#FFFFFF60] rounded-lg text-black text-xs m-2 px-3 py-0.5 ">
           {category.name}

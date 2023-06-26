@@ -5,7 +5,7 @@ import {
   REMOVE_ONE_FROM_CART,
 } from "../action-type/action-types";
 
-export const addToCart = (id) => ({ type: ADD_TO_CART, payload: id });
+export const addToCart = (data) => ({ type: ADD_TO_CART, payload: data });
 
 export const delFromCart = (id, all = false) =>
   all

@@ -16,9 +16,8 @@ export default function shoppingCartReducer(
 ) {
   switch (action.type) {
     case ADD_TO_CART: {
-      let newItem = state.products.find(
-        (product) => product.id === action.payload
-      );
+      let newItem = action.payload;
+
       let itemCart = state.cart.find((item) => item.id === newItem.id);
 
       return itemCart
