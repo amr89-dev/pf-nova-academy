@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useRoutes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getAllCourses } from "./redux/actions/coursesActions";
 import Admin from "./pages/Admin";
 import Checkout from "./pages/Checkout";
 import Courses from "./pages/Courses";
@@ -14,12 +15,10 @@ import NavBar from "./components/NavBar";
 
 useState;
 const App = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios
-      .get("https://api.escuelajs.co/api/v1/products")
-      .then(({ data }) => setProducts(data));
+    dispatch(getAllCourses());
   }, []);
 
   const AppRouter = () => {
@@ -28,7 +27,7 @@ const App = () => {
       { path: "/home", element: <Home /> },
       { path: "/admin", element: <Admin /> },
       { path: "/checkout", element: <Checkout /> },
-      { path: "/courses", element: <Courses courses={products} /> },
+      { path: "/courses", element: <Courses /> },
       { path: "/account", element: <MyAccount /> },
       { path: "/order", element: <MyOrder /> },
       { path: "/login", element: <SingIn /> },

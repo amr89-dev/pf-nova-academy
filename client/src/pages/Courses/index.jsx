@@ -1,7 +1,11 @@
+import { useSelector } from "react-redux";
 import Layout from "../../Layout";
 import CourseCards from "../../components/CourseCards/CourseCards";
 //eslint-disable-next-line
-const Courses = ({ courses }) => {
+
+const Courses = () => {
+  const courses = useSelector((state) => state).coursesReducer.courses;
+
   return (
     <Layout>
       <CourseCards courses={courses} />
