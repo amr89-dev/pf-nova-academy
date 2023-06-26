@@ -7,7 +7,10 @@ import MyAccount from "./pages/MyAccount";
 import MyOrder from "./pages/MyOrder";
 import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
+import SingUp from "./pages/SingUp";
 import Home from "./pages/Home";
+
+
 
 const AppRouter = () => {
   let routes = useRoutes([
@@ -19,6 +22,7 @@ const AppRouter = () => {
     { path: "/account", element: <MyAccount /> },
     { path: "/order", element: <MyOrder /> },
     { path: "/login", element: <SingIn /> },
+    { path: "/register", element: <SingUp /> },
     { path: "/*", element: <NotFound /> },
   ]);
 
