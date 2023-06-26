@@ -12,12 +12,9 @@ const VerifyAuthorization = require("../middleware/auth.js");
 const userRoutes = Router();
 userRoutes.delete("/deleteUser/:userId",deleteUserById);
 userRoutes.get("/userId/:userId",getUserById);
-
 userRoutes.put("/updateUser/:userId",updateUserById);
 userRoutes.get("/login",validateLoginUser,getLoginUser);
 userRoutes.post("/singup",validateCreateuser, createUser);
 userRoutes.get("/",VerifyAuthorization,getUsers);
-
-
 
 module.exports = userRoutes;
