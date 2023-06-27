@@ -7,6 +7,8 @@ const Detail = () => {
   const [course, setCourse] = useState({});
 
   const getUser = async () => {
+    // console.log(useParams())
+    console.log(courseId)
     const response = await axios.get(
       `http://localhost:3001/courseForSale/${courseId}`
     );

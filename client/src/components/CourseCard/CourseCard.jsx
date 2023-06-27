@@ -5,10 +5,9 @@ import { NavLink } from "react-router-dom";
 /* eslint-disable */
 
 const CourseCard = ({ dataCard }) => {
-  const { idCourseForSale, name, price, description, images, category } =
+  const { id, name, price, description, images, category } =
     dataCard;
   const dispatch = useDispatch();
-
   const handleCart = (data) => {
     dispatch(addToCart(data));
   };
@@ -19,7 +18,7 @@ const CourseCard = ({ dataCard }) => {
         <span className="absolute bottom-0 left-0 bg-[#FFFFFF60] rounded-lg text-black text-xs m-2 px-3 py-0.5 ">
           {category[0]}
         </span>
-        <NavLink to={`/detail/${idCourseForSale}`}>
+        <NavLink to={`/detail/${id}`}>
           <img
             src="https://picsum.photos/800/600"
             alt={name}
