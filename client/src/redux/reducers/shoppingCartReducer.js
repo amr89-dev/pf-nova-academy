@@ -17,15 +17,13 @@ export default function shoppingCartReducer(
     case ADD_TO_CART: {
       let newItem = action.payload;
 
-      let itemCart = state.cart.find(
-        (item) => item.idCourseForSale === newItem.idCourseForSale
-      );
+      let itemCart = state.cart.find((item) => item.id === newItem.id);
 
       return itemCart
         ? {
             ...state,
             cart: state.cart.map((item) =>
-              item.idCourseForSale === newItem.idCourseForSale
+              item.id === newItem.id
                 ? { ...item, quantity: item.quantity + 1 }
                 : item
             ),

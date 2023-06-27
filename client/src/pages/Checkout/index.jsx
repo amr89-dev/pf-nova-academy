@@ -9,7 +9,7 @@ const Checkout = () => {
   return (
     <Layout>
       {coursesCart?.map((el) => (
-        <CourseCard key={el.idCourseForSale} dataCard={el} />
+        <CourseCard key={el.id} dataCard={el} />
       ))}
     </Layout>
   );
