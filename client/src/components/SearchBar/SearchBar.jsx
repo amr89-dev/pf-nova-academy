@@ -5,6 +5,7 @@ import store from "./redux/store/store"; */
 // import "./index.css";
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import CourseCards from "../../components/CourseCards/CourseCards";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -14,7 +15,7 @@ const SearchBar = () => {
   useEffect(() => {
     const searchTermLowerCase = searchTerm.toLowerCase();
     const filteredCourses = courses.filter((course) => {
-      const courseName = course?.title?.toLowerCase();
+      const courseName = course?.name?.toLowerCase();
       return courseName && courseName.includes(searchTermLowerCase);
     });
 
@@ -30,7 +31,8 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-br">
+    // <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-br">
+    <div className="sticky bottom-0" >
       <div className="relative rounded-2xl bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:px-10">
         <div className="mx-auto max-w-md">
           <form action="" className="relative mx-auto w-max">
@@ -54,16 +56,17 @@ const SearchBar = () => {
               />
             </svg>
           </form>
-          <div>
-            {searchTerm && filteredCourses.length > 0 && (
-              filteredCourses.map((course) => (
-                <div key={course.id}>{course.title}</div>
-              ))
-            )}
-          </div>
+          
           
         </div>
       </div>
+      <div>
+            {searchTerm && filteredCourses.length > 0 && (
+              filteredCourses.map((course) => (
+                <div key={course.id}><CourseCards courses={filteredCourses} /></div>
+              ))
+            )}
+          </div>
     </div>
   );
 };
