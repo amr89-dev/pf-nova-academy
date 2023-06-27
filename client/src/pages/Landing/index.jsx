@@ -7,9 +7,9 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 const Landing = () => {
   return (
     <Layout>
-      <Banner />      
-      <SearchBar />
+      <Banner />
       <Carrousel />
+      <SearchBar />     
       <Footer />
     </Layout>
   );
