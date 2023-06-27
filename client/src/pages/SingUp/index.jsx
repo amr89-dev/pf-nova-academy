@@ -1,10 +1,20 @@
+import React from 'react';
+import axios from 'axios';
 import { useState } from 'react';
+import { connect } from 'react-redux';
+import {signUpSuccess, signUpFailure} from '../../redux/actions/userActions';
 
-const SignUp = () => {
+
+
+const SignUp = ({ signUpSuccess, signUpFailure }) => {
+
+  //definir un solo estado con los 3 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [user, setUser] = useState(null);
+  const [passwordError, setPasswordError] = useState('');
+
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -18,27 +28,41 @@ const SignUp = () => {
     setPassword(event.target.value);
   };
 
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+    return passwordRegex.test(password);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
 
-    // Validar la contraseña
-    if (password !== confirmPassword) {
-      alert('Las contraseñas no coinciden');
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // Realizar el envío del formulario o la lógica adicional aquí
+    if (!validatePassword(password)) {
+      setPasswordError(
+        'La contraseña debe tener al menos 8 caracteres, una mayúscula y un número'
+      );
       return;
     }
+    try{
+      const response = await axios.post('http://localhost:3001/user/singup',{
+        name,
+        email,
+        password,
+        
+      });
+      console.log('submit exitoso ')
+      const user = response.data;
+      signUpSuccess(user); // Dispatch de la acción de éxito
+      setName('');
+      setEmail('');
+      setPassword('');
+      setPasswordError('');
 
-    // Realizar el envío del formulario o la lógica adicional aquí
-    // ...
-
-    // Reiniciar los campos del formulario después del envío exitoso
-    setName('');
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
+    } catch (error) {
+      console.log(error)
+      signUpFailure(error); // Dispatch de la acción de fallo
+      console.error('Error al registrar', error);
+    }
   };
 
   return (
@@ -82,23 +106,18 @@ const SignUp = () => {
                 onChange={handlePasswordChange}
                 required
               />
+              {passwordError && (
+                <p className="text-red-500 text-xs mt-1">{passwordError}</p>
+              )}
             </div>
-            <div className="mb-4">
-              <label className="text-gray-600">Confirmar contraseña:</label>
-              <input
-                className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
-                type="password"
-                value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
-                required
-              />
-            </div>
+            
             <button
               className="mt-4 bg-blue-600 hover:underline px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
               type="submit"
             >
               Registrarse
             </button>
+
           </form>
         </div>
       </div>
@@ -106,4 +125,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default connect(null, { signUpSuccess, signUpFailure })(SignUp);
