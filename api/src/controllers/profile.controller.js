@@ -1,5 +1,6 @@
-const { Profile, User } = require("../db");
+const { Profile, User, CourseForSale,Course } = require("../db");
 const getUserToken = require("../helpers/getUsertoken");
+const data = require("../constants/data");
 const getProfile = async (req, res) => {
   try {
     const user = await getUserToken(req);
@@ -16,10 +17,5 @@ const getProfile = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-const postAddProfileCourse = (req, res) => {
-  try {
-   
-   
-  } catch (error) {}
-};
-module.exports = { getProfile, postAddProfileCourse };
+
+module.exports = { getProfile };
