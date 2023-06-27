@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { gapi } from "gapi-script";
 import GoogleLogin from "react-google-login";
 import { Link } from "react-router-dom";
-
+/* eslint-disable */
 // import { useHistory } from 'react-router-dom';
 
 const SingIn = () => {
