@@ -12,7 +12,6 @@ const reviewRoutes = require("./reviewRoutes.js");
 const userRoutes = require("./userRoutes.js");
 const profileRoutes = require("./profileRoutes.js");
 const courseForsaleRouter = require("./courseForSaleRoutes.js");
-const mercadoPagoRoutes = require("./mercadoPagoRoutes.js")
 const router = Router();
 router.use("/courseForSale", courseForsaleRouter);
 router.use("/profile", profileRoutes);
@@ -20,7 +19,7 @@ router.use("/courses", courseRoutes);
 router.use("/category", categoryRoutes);
 router.use("/certificate", certificateRoutes);
 router.use("/lesson", lessonRoutes);
-router.use("/mercadopago", mercadoPagoRoutes);
+// router.use("/mercadopago", mercadoPagoRoutes);
 router.use("/module", moduleRoutes);
 router.use("/payment", paymentRoutes);
 router.use("/progresslesson", progressLessonRoutes);
