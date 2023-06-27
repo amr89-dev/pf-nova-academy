@@ -21,6 +21,7 @@ const SearchBar = () => {
   });
 useEffect(() => {
     console.log('Término de búsqueda actualizado:', searchTerm);
+    console.log(filteredCourses)
   }, [searchTerm]);
   return (
     <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-br">
