@@ -1,6 +1,22 @@
-# **PF NOVA ACADEMY**
+# Nova Academy
+
+Repositorio del proyecto final del bootcamp **Henry**
+
+18-06-2023
+
+## Integrantes:
+
+- Alicia Cardinali
+- Liliana
+- Agustin
+- Santiago (dev-santiago)
+- Javier
+- Neider
+- Daniel
+- Amado
 
 ## 📋 **MODELOS BASE DE DATOS:**
+
 <br>
 
 **`Usuario:`** Almacena la información de los usuarios registrados en la plataforma, como su nombre, dirección de correo electrónico, contraseña y cualquier otro dato relevante.
