@@ -23,7 +23,7 @@ const CartItem = ({ dataCard }) => {
           />
         }
       </figure>
-      <p className="flex flex-col justify-start">
+      <div className="flex flex-col justify-start">
         <span className="text-md font-bold">{name}</span>
         <span className="text-sm font-light">{description}</span>
         <div className="flex flex-row items-center">
@@ -48,7 +48,7 @@ const CartItem = ({ dataCard }) => {
           <span className="text-lg font-medium ">${price}</span>
         </div>
         <span className="text-lg font-bold mx-auto ">Total: ${total}</span>
-      </p>
+      </div>
     </div>
   );
 };
