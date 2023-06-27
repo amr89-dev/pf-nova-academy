@@ -6,7 +6,6 @@ import {
 } from "../action-type/action-types";
 
 const shoppingInitialState = {
-  products: [],
   cart: [],
 };
 
@@ -18,13 +17,15 @@ export default function shoppingCartReducer(
     case ADD_TO_CART: {
       let newItem = action.payload;
 
-      let itemCart = state.cart.find((item) => item.id === newItem.id);
+      let itemCart = state.cart.find(
+        (item) => item.idCourseForSale === newItem.idCourseForSale
+      );
 
       return itemCart
         ? {
             ...state,
             cart: state.cart.map((item) =>
-              item.id === newItem.id
+              item.idCourseForSale === newItem.idCourseForSale
                 ? { ...item, quantity: item.quantity + 1 }
                 : item
             ),
