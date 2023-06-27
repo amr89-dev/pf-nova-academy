@@ -58,6 +58,7 @@ const getUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
   try {
+    console.log("estoy aqui")
     const { userId } = req.params;
     console.log(userId);
     const user = await User.findByPk(userId);

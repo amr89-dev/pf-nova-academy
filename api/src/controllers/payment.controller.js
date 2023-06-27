@@ -2,8 +2,8 @@ const { Payment } = require("../db");
 
 const createPayment = async (req, res) => {
   try {
-    const { payment_date, payment_amount } = req.body;
-    const payment = await Payment.create({ payment_date, payment_amount });
+    const { payment_date, payment_amount, profileId } = req.body;
+    const payment = await Payment.create({ payment_date, payment_amount, profileId });
     res.json(payment);
   } catch (error) {
     console.error(error);

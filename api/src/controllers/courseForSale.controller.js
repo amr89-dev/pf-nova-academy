@@ -79,9 +79,25 @@ const deleteCourseForSale = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+const getCourseForSaleById = async (req, res) => {
+  try {
+    const { courseId } = req.params;
+    const course = await CourseForSale.findByPk(courseId);
+    if (!course) {
+      return res.status(404).json({ error: "Course not found" });
+    }
+    res.json(course);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error retrieving course" });
+  }
+};
+
 module.exports = {
   postCreateCourseForSale,
   getCourseForSale,
   deleteCourseForSale,
   updateCourseForSale,
+  getCourseForSaleById
 };
