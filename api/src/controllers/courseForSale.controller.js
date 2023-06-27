@@ -1,6 +1,6 @@
 const { CourseForSale, Profile, User } = require("../db");
 const getUserToken = require("../helpers/getUsertoken");
-const {cursos,category} = require("../constants/data");
+const { cursos, category } = require("../constants/data");
 
 const postCreateCourseForSale = async (req, res) => {
   /* try {
@@ -32,19 +32,19 @@ const getCourseForSale = async (req, res) => {
       },
     });
     const courseCount = await CourseForSale.count();
-    res.send({courseCount,courseAll});
+    res.send({ courseCount, courseAll });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
-const updateCourseForSale = async (req,res) => {
+const updateCourseForSale = async (req, res) => {
   try {
     const courseId = req.params.courseId;
     const updateCourse = req.body;
     const user = await getUserToken(req);
     const updatedCourse = await CourseForSale.update(updateCourse, {
       where: {
-        idCourseForSale: courseId,
+        id: courseId,
         idProfile: user.idUser,
       },
     });
@@ -52,9 +52,8 @@ const updateCourseForSale = async (req,res) => {
       res
         .status(400)
         .json({ error: "Course not found for the current user profile" });
-    }
-    else{
-        res.send('update course successfully');
+    } else {
+      res.send("update course successfully");
     }
   } catch (error) {
     res.json({ error: error.message });
@@ -65,7 +64,7 @@ const deleteCourseForSale = async (req, res) => {
     const courseId = req.params.courseId;
     const user = await getUserToken(req);
     const courseDelete = await CourseForSale.destroy({
-      where: { idCourseForSale: courseId, idProfile: user.idUser },
+      where: { id: courseId, idProfile: user.idUser },
     });
     if (courseDelete === 0) {
       return res
