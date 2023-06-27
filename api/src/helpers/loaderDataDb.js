@@ -43,7 +43,6 @@ const loaderUsers = async () => {
 const loaderCourseForSale = async () => {
     const profileIds = await Profile.findAll({ attributes: ['profileId'] });
     const objGnerated= generateCourseObjects(cursos,20)
-   
     const coursesToAdd = profileIds.flatMap(profile => {
       return objGnerated.map(cur => {
         
