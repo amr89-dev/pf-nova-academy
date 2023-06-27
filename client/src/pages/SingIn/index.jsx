@@ -47,9 +47,7 @@ const SingIn = () => {
       });
   };
 
-  if (loggedIn) {
-    return <redirect to="/" />; // Redirecciona a la pagina de perfil-home con sus datos
-  }
+
 
   const clientID =
     "1025111478798-qcpl6unb1c4j99cpnf86ts4p75a4llm5.apps.googleusercontent.com";
@@ -57,8 +55,10 @@ const SingIn = () => {
   const [loggeIn, setLoggetInfo] = useState(false);
 
   const onSuccess = (response) => {
-    setUser(response.profileObj);
-    document.getElementsByClassName("btn").hidden = true;
+    console.log(response);
+    console.log(response.profileObj);
+    console.log(response.profileObj.email);
+    console.log(response.profileObj.name);
   };
   const onFailure = (response) => {
     console.log("Something went wrong");
@@ -98,7 +98,7 @@ const SingIn = () => {
 
           <div className={user ? "profile" : "hidden"}>
             <img src={user.imageUrl} />
-            <h3>{user.name}</h3>
+            <h3> {user.name}</h3>
           </div>
         </div>
         <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
