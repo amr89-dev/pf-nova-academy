@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRoutes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getAllCourses } from "./redux/actions/coursesActions";
@@ -10,10 +10,11 @@ import MyAccount from "./pages/MyAccount";
 import MyOrder from "./pages/MyOrder";
 import NotFound from "./pages/NotFound";
 import SingIn from "./pages/SingIn";
+import SingUp from "./pages/SingUp";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
+import Detail from "./pages/Detail";
 
-useState;
 const App = () => {
   const dispatch = useDispatch();
 
@@ -31,6 +32,8 @@ const App = () => {
       { path: "/account", element: <MyAccount /> },
       { path: "/order", element: <MyOrder /> },
       { path: "/login", element: <SingIn /> },
+      { path: "/register", element: <SingUp /> },
+      { path: "/detail/:courseId", element: <Detail /> },
       { path: "/*", element: <NotFound /> },
     ]);
 

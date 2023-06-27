@@ -1,4 +1,3 @@
-const { verify } = require("jsonwebtoken");
 const { verifyToken } = require("../helpers/generateToken");
 
 const VerifyAuthorization = async (req, res, next) => {

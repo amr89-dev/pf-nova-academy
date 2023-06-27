@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/icons/logo.svg";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const courses = useSelector((state) => state).shoppingCartReducer.cart;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -79,7 +81,7 @@ const NavBar = () => {
             <NavLink to="/account">👤</NavLink>
           </li>
           <li>
-            <NavLink to="/checkout">🛒 0</NavLink>
+            <NavLink to="/checkout">🛒 {courses.length}</NavLink>
           </li>
         </ul>
       </nav>

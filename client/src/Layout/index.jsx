@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-const Layout = ({ children }) => {
+ const Layout = ({ children }) => {
   return (
     <div className="flex flex-col items-center mx-auto max-w-screen-lg">
       {children}
@@ -7,4 +7,11 @@ const Layout = ({ children }) => {
   );
 };
 
+
+
+
+
+
+
 export default Layout;
+ 

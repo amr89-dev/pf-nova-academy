@@ -2,8 +2,8 @@ const { Resource } = require("../db");
 
 const createResource = async (req, res) => {
   try {
-    const { name, type, link } = req.body;
-    const resource = await Resource.create({ name, type, link });
+    const { name, type, link, lessonId } = req.body;
+    const resource = await Resource.create({ name, type, link, lessonId});
     res.json(resource);
   } catch (error) {
     console.error(error);

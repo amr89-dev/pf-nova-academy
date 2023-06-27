@@ -1,9 +1,13 @@
 import Layout from "../../Layout";
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
   return (
     <Layout>
-      <h2>HOME</h2>
+      <h2 className='h-screen flex flex-col'>HOME</h2>
+      <footer className=" bg-dark-gray text-primary-blue static bottom-0 w-full h-max">
+      <Footer/>
+      </footer>
     </Layout>
   );
 };

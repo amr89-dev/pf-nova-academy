@@ -1,20 +1,22 @@
 const jwt = require("jsonwebtoken");
+
+
 const { JWT_SECRET } = process.env;
 const createtoken = async (user) => {
   return jwt.sign(
     {
-      idUser: user.id,
+      idUser: user.userId,
       role: user.role,
     },
     JWT_SECRET,
-    { expiresIn: "24h" }
+    { expiresIn: "2h" }
   );
 };
 const verifyToken = async (token) => {
   try {
-    return jwt.verify(token, JWT_SECRET);
+    return jwt.verify(token,JWT_SECRET);
   } catch (error) {
-    return null;
+    throw Error(error.message)
   }
 };
 module.exports = { createtoken, verifyToken };

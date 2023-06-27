@@ -2,8 +2,8 @@ const { Review } = require("../db");
 
 const createReview = async (req, res) => {
   try {
-    const { content} = req.body;
-    const review = await Review.create({ content });
+    const { content, courseId} = req.body;
+    const review = await Review.create({ content, courseId });
     res.json(review);
   } catch (error) {
     console.error(error);

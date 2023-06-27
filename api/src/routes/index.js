@@ -1,22 +1,25 @@
-const { Router } = require('express');
+const { Router } = require("express");
 // Importar todos los routers;
-const courseRoutes = require("./courseRoutes.js")
-const categoryRoutes = require("./categoryRoutes.js")
-const certificateRoutes = require("./certificateRoutes.js")
-const lessonRoutes = require("./lessonRoutes.js")
-const moduleRoutes = require("./moduleRoutes.js")
-const paymentRoutes = require("./paymentRoutes.js")
-const progressLessonRoutes = require("./progressLessonRoutes.js")
-const resourceRoutes = require("./resourceRoutes.js")
-const reviewRoutes = require('./reviewRoutes.js');
-const userRoutes = require('./userRoutes.js');
-
+const courseRoutes = require("./courseRoutes.js");
+const categoryRoutes = require("./categoryRoutes.js");
+const certificateRoutes = require("./certificateRoutes.js");
+const lessonRoutes = require("./lessonRoutes.js");
+const moduleRoutes = require("./moduleRoutes.js");
+const paymentRoutes = require("./paymentRoutes.js");
+const progressLessonRoutes = require("./progressLessonRoutes.js");
+const resourceRoutes = require("./resourceRoutes.js");
+const reviewRoutes = require("./reviewRoutes.js");
+const userRoutes = require("./userRoutes.js");
+const profileRoutes = require("./profileRoutes.js");
+const courseForsaleRouter = require("./courseForSaleRoutes.js");
 const router = Router();
-
+router.use("/courseForSale", courseForsaleRouter);
+router.use("/profile", profileRoutes);
 router.use("/courses", courseRoutes);
 router.use("/category", categoryRoutes);
 router.use("/certificate", certificateRoutes);
 router.use("/lesson", lessonRoutes);
+// router.use("/mercadopago", mercadoPagoRoutes);
 router.use("/module", moduleRoutes);
 router.use("/payment", paymentRoutes);
 router.use("/progresslesson", progressLessonRoutes);

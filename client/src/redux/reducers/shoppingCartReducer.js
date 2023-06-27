@@ -6,7 +6,6 @@ import {
 } from "../action-type/action-types";
 
 const shoppingInitialState = {
-  products: [],
   cart: [],
 };
 
