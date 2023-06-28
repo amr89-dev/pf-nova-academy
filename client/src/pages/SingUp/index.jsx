@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import {signUpSuccess, signUpFailure} from '../../redux/actions/userActions';
+import Swal from 'sweetalert2';
 
 
 
@@ -14,6 +15,8 @@ const SignUp = ({ signUpSuccess, signUpFailure }) => {
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null);
   const [passwordError, setPasswordError] = useState('');
+
+  
 
 
   const handleNameChange = (event) => {
@@ -34,6 +37,8 @@ const SignUp = ({ signUpSuccess, signUpFailure }) => {
   };
 
 
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Realizar el envío del formulario o la lógica adicional aquí
@@ -43,6 +48,8 @@ const SignUp = ({ signUpSuccess, signUpFailure }) => {
       );
       return;
     }
+
+    
     try{
       const response = await axios.post('http://localhost:3001/user/singup',{
         name,
@@ -51,7 +58,16 @@ const SignUp = ({ signUpSuccess, signUpFailure }) => {
         
       });
       console.log('submit exitoso ')
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro completo',
+        text: 'Creaste tu cuenta ahora puedes ingresar',
+        footer: '<a href="http://localhost:5173/login">Ingresa desde AQUI</a>'}
+
+      )
       const user = response.data;
+      
+
       signUpSuccess(user); // Dispatch de la acción de éxito
       setName('');
       setEmail('');
@@ -60,9 +76,18 @@ const SignUp = ({ signUpSuccess, signUpFailure }) => {
 
     } catch (error) {
       console.log(error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algun dato esta mal, valida cumplir los requisitos',
+        
+      })
+    
       signUpFailure(error); // Dispatch de la acción de fallo
       console.error('Error al registrar', error);
     }
+
+    
   };
 
   return (
