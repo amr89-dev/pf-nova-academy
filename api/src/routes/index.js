@@ -19,7 +19,7 @@ router.use("/courses", courseRoutes);
 router.use("/category", categoryRoutes);
 router.use("/certificate", certificateRoutes);
 router.use("/lesson", lessonRoutes);
-// router.use("/mercadopago", mercadoPagoRoutes);
+router.use("/mercadopago", mercadoPagoRoutes);
 router.use("/module", moduleRoutes);
 router.use("/payment", paymentRoutes);
 router.use("/progresslesson", progressLessonRoutes);
