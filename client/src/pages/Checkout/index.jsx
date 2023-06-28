@@ -6,6 +6,7 @@ import axios from "axios";
 
 const Checkout = () => {
   const coursesCart = useSelector((state) => state).shoppingCartReducer.cart;
+
   const dispatch = useDispatch();
   let totalPrice = coursesCart.reduce((acumulador, el) => {
     const subtotal = el.quantity * el.price;
@@ -26,9 +27,8 @@ const Checkout = () => {
   });
 
   const handlePayment = async (products) => {
-    console.log("-->", dataToPayment);
     await axios
-      .post("http://localhost:3001/payment", products)
+      .post("http://localhost:3001/mercadopago", products)
       .then(({ data }) => {
         window.location.href = data.response.body.init_point;
       });
