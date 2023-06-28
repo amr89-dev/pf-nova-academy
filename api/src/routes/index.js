@@ -12,6 +12,7 @@ const reviewRoutes = require("./reviewRoutes.js");
 const userRoutes = require("./userRoutes.js");
 const profileRoutes = require("./profileRoutes.js");
 const courseForsaleRouter = require("./courseForSaleRoutes.js");
+const mercadoPagoRoutes = require("./mercadoPagoRoutes.js");
 const router = Router();
 router.use("/courseForSale", courseForsaleRouter);
 router.use("/profile", profileRoutes);

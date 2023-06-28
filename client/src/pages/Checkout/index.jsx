@@ -26,9 +26,8 @@ const Checkout = () => {
   });
 
   const handlePayment = async (products) => {
-    console.log("-->", dataToPayment);
     await axios
-      .post("http://localhost:3001/payment", products)
+      .post("http://localhost:3001/mercadopago", products)
       .then(({ data }) => {
         window.location.href = data.response.body.init_point;
       });

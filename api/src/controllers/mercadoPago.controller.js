@@ -11,22 +11,9 @@ mercadopago.configure({
 const createPayment = async (req, res) => {
   try {
     const prod = req.body;
-
-    console.log(prod);
     // Crear el objeto de preferencia de pago
     const preference = {
-      items: [
-        {
-          id: 123,
-          title: prod.title,
-          currency_id: "ARS",
-          picture_url: prod.image,
-          description: prod.description,
-          category_id: "art",
-          quantity: 1,
-          unit_price: prod.price,
-        },
-      ],
+      items: prod,
       back_urls: {
         success: "http://localhost:3001",
         failure: "",
