@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const About = () => {
   return (
     <div id="quienes-somos" className="bg-gray-100 py-12">
@@ -124,12 +126,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* <a
-          href="/carrito"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full inline-block"
-        >
-          Ir al carrito de compras
-        </a> */}
+        <Link to="/register">Dejanos tus comentarios</Link>
       </div>
     </div>
   );
