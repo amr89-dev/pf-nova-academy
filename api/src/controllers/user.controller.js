@@ -31,7 +31,10 @@ const getLoginUser = async (req, res) => {
   try {
     console.log('-->',email)
     const user = await User.findOne({ where: { email: email } }); // Se busca en la base de datos un usuario con el correo electrónico proporcionado
-    if (!user) throw Error("User not found"); // Si no se encuentra ningún usuario, se lanza un error
+    if (!user){
+      const error = new Error("user not found");
+      error.status = 404;
+      throw error;} // Si no se encuentra ningún usuario, se lanza un error
     const checkPassword = await compare(password, user.password); // Se compara la contraseña proporcionada con la contraseña almacenada en la base de datos
     const tokenSession = await createtoken(user); // Si la contraseña coincide, se crea un token de sesión
     if (checkPassword)
@@ -40,10 +43,15 @@ const getLoginUser = async (req, res) => {
         .json(
           tokenSession
         ); // Se devuelve el token de sesión como respuesta con un estado 200
-    else throw Error("Invalid password"); // Si la contraseña no coincide, se lanza un error
+    else{
+      const error = new Error("Invalid password");
+      error.status = 401;
+      throw error;
+    }  // Si la contraseña no coincide, se lanza un error
   } catch (error) {
+    const estatus = error.status || 500
   console.log(error.message)
-    res.status(500).json({ error: error.message }); // Si ocurre algún error durante el proceso, se devuelve un estado 500 con un mensaje de error
+    res.status(estatus).json({ error: error.message }); // Si ocurre algún error durante el proceso, se devuelve un estado 500 con un mensaje de error
   }
 };
 

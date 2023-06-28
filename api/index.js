@@ -22,6 +22,7 @@ const main = async () => {
     await loaderCourseForSale()
   } catch (error) {
     console.error("Unable to connect to the database:", error.message);
+  
   }
 };
 main();
