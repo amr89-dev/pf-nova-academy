@@ -32,7 +32,6 @@ const SearchBar = () => {
 
   return (
     <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-br">
-      {/* // <div className="sticky bottom-0" > */}
       <div className="relative rounded-2xl bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:px-10">
         <div className="mx-auto max-w-md">
           <form action="" className="relative mx-auto w-max">
@@ -41,7 +40,7 @@ const SearchBar = () => {
               type="search"
               className="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4"
               onChange={handleSearch}
-              placeholder="buscar....."
+              placeholder="buscar..."
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
