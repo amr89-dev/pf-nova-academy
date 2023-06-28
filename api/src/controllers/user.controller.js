@@ -1,9 +1,10 @@
 const { User,Profile } = require("../db");
 const { createtoken } = require("../helpers/generateToken");
 const { compare, encrypt } = require("../helpers/handleBcrypt");
-const profile = require("../models/profile");
+
 
 const createUser = async (req, res) => {
+  console.log(req.body)
   try {
     const { name, email, password, role } = req.body;
     console.log(role)
@@ -16,8 +17,9 @@ const createUser = async (req, res) => {
     
     const newPerfil = await Profile.create({
       userId: user.userId, // ID del usuario se guarda en la columna 'userId' de la tabla 'Perfil'
+      name: user.name,
     });
-    res.json({user,newPerfil});
+    res.send('user created successfully');
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Error creating user" });
@@ -27,6 +29,7 @@ const createUser = async (req, res) => {
 const getLoginUser = async (req, res) => {
   const { email, password } = req.body; // Se extraen el correo electrónico y la contraseña del cuerpo de la solicitud
   try {
+    console.log('-->',email)
     const user = await User.findOne({ where: { email: email } }); // Se busca en la base de datos un usuario con el correo electrónico proporcionado
     if (!user) throw Error("User not found"); // Si no se encuentra ningún usuario, se lanza un error
     const checkPassword = await compare(password, user.password); // Se compara la contraseña proporcionada con la contraseña almacenada en la base de datos
@@ -39,6 +42,7 @@ const getLoginUser = async (req, res) => {
         ); // Se devuelve el token de sesión como respuesta con un estado 200
     else throw Error("Invalid password"); // Si la contraseña no coincide, se lanza un error
   } catch (error) {
+  console.log(error.message)
     res.status(500).json({ error: error.message }); // Si ocurre algún error durante el proceso, se devuelve un estado 500 con un mensaje de error
   }
 };
@@ -55,6 +59,7 @@ const getUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
   try {
+    console.log("estoy aqui")
     const { userId } = req.params;
     console.log(userId);
     const user = await User.findByPk(userId);
@@ -63,7 +68,7 @@ const getUserById = async (req, res) => {
     }
     res.json(user);
   } catch (error) {
-    console.error(error);
+    console.log('esty aqui dentro de  getUserByid');
     res.status(500).json({ error: "Error retrieving user" });
   }
 };
