@@ -27,7 +27,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="mb-5 ml-auto">
+            <div className="mb-5 ml-0">
               <span className="mr-2">Únete a nuestro Boletín Informativo</span>
               <form className="mt-5">
                 <input type="text" name="" id="" />
