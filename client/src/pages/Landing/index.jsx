@@ -8,8 +8,8 @@ const Landing = () => {
   return (
     <Layout>
       <Banner />
-      <Carrousel />
       <SearchBar />
+      <Carrousel />
       <Footer />
     </Layout>
   );
