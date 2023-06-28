@@ -14,6 +14,7 @@ import SingUp from "./pages/SingUp";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import Detail from "./pages/Detail";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const App = () => {
     <div>
       <NavBar />
       <AppRouter />
+      <Footer />
     </div>
   );
 };

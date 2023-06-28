@@ -1,4 +1,3 @@
-import Footer from "../../components/Footer/Footer";
 import Carrousel from "../../components/Carrousel";
 import Banner from "../../components/Banner/Banner";
 import Layout from "../../Layout/";
@@ -10,7 +9,6 @@ const Landing = () => {
       <Banner />
       <SearchBar />
       <Carrousel />
-      <Footer />
     </Layout>
   );
 };
