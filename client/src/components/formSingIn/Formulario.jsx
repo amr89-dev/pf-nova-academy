@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Input } from "./inputForm";
 import { useForm } from "../../hooks/useForm";
 import ModalErrorForm from "./ModalErrorForm";
+
 const objForm = { email: "", password: "", isCheked: false };
 export const FormSingIn = () => {
   const {
@@ -55,15 +56,6 @@ export const FormSingIn = () => {
           />
           Remember Me
         </label>
-      </div>
-
-      <div className="flex items-center justify-between mt-4">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline"
-          onClick={handleOnSubmit}
-        >
-          Sign In
-        </button>
         <a
           className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
           href="#"
@@ -72,9 +64,18 @@ export const FormSingIn = () => {
         </a>
       </div>
 
-      <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">
-        Don't have an account? <Link to="/register">Registrate</Link>
+      <div className="flex  mt-4">
+        <button
+          className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold p-2 rounded focus:outline-none focus:shadow-outline"
+          onClick={handleOnSubmit}
+        >
+          Sign In
+        </button>
       </div>
+
+      <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
+        Don't have an account? <NavLink className={"text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"}>Register</NavLink>
+      </p>
       {showModal && (
         <ModalErrorForm showModal={showModal} setShowModal={setShowModal} />
       )}
